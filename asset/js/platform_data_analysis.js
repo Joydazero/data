@@ -578,7 +578,7 @@ if (optionRest08 && typeof optionRest08 === 'object') {
 
 window.addEventListener('resize', myChartRest08.resize);
 
-// 일평균 충전 횟수
+// 연도별 전기차 누적등록현황
 var dom4 = document.getElementById('elecar_data_graph_04');
 var myChart4 = echarts.init(dom4, null, {
   renderer: 'svg',
@@ -589,6 +589,13 @@ var app = {};
 var option4;
 
 option4 = {
+  
+  grid : {
+        top:'5%',
+        left:'15%',
+         right: '15%',
+         bottom:'10%'
+  },
   xAxis: {
     type: 'category',
     data: ['2020', '2021', '2022', '2023'],
@@ -598,29 +605,148 @@ option4 = {
     }
   },
   yAxis: {
-    type: 'value',    
+    type: 'value'
+    
   },
   series: [
-    {      
-      data: [0.6, 0.9, 1.5, 2.1],
-      type: 'bar',      
-      showBackground: true,
-      backgroundStyle: {
-        color: 'rgba(180, 180, 180, 0.2)'
+    {
+      name: '전기',
+      type: 'bar',
+      stack: 'total',
+      data: [0.6, 0.9,1.5, 2.1],
+      label: {
+            show: true,  // 데이터 레이블을 표시
+            position: 'top',
+            formatter: function (params) {
+                return params.value + '%';
+            }
+        },
+      barMinHeight: 10, // 최소 바 높이
+      zlevel:2,
+      emphasis: {
+        focus: 'series'
       },
-       label: {
-        show: true,
-        position: 'inside', // 막대 안쪽에 표시
-        formatter: (params) => params.value + '%'
-     },
-     markPoint: { // markLine is in the same way.
-            data: [{
-                coord: [5, 33.4], // The number 5 represents xAxis.data[5], that is, '33'.
-                // coord: ['5', 33.4] // The string '5' represents the '5' in xAxis.data.
-            }]
+
+      //  showBackground: true,
+      // backgroundStyle: {
+      //   color: 'rgba(180, 180, 180, 0.2)'
+      // }
+       itemStyle: {
+                color: '#a1d99b'
+        
+      },
+    },
+    {
+      name: '야외',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: true
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      zlevel:1,
+      data: [134962,231443,389855,543900],
+      label: {
+            show: true,  // 데이터 레이블을 표시
+            position: 'top',
+            formatter: function (params) {
+                return (params.value / 1000);
+            }
+        },
+        itemStyle: {
+                color: '#e5f5e0'
+        
+      },
+      
+    },    
+    //{      
+    //   data: [0.6, 0.9, 1.5, 2.1],
+    //   type: 'bar',      
+    //   showBackground: true,
+    //   backgroundStyle: {
+    //     color: 'rgba(180, 180, 180, 0.2)'
+    //   },
+    //    label: {
+    //     show: true,
+    //     position: 'inside', // 막대 안쪽에 표시
+    //     formatter: (params) => params.value + '%'
+    //  },
+    //   markPoint: { // markLine is in the same way.
+    //           data: [{
+    //               coord: [5, 33.4], // The number 5 represents xAxis.data[5], that is, '33'.
+    //               // coord: ['5', 33.4] // The string '5' represents the '5' in xAxis.data.
+    //           }]
+    //   }
+    //}
+    
+  ],
+  
+     graphic: [
+       {
+            type: 'text',
+            left: 'left',
+            top: 'middle',  // 범례 위에 위치하도록 설정
+            rotation: Math.PI / 2,
+            style: {
+                text: '전체차량등록수',  // 제목 텍스트
+                fontSize: 16,
+                fontWeight: 'bold',
+                fill: '#fff'  // 텍스트 색상 설정
+             }
+         },
+       {
+            type: 'text',
+            right: '8%',
+            top: '40%',  // 범례 위에 위치하도록 설정
+            style: {
+                text: '연료',  // 제목 텍스트
+                fontSize: 16,
+                fontWeight: 'bold',
+                fill: '#fff'  // 텍스트 색상 설정
+             }
+        }
+      ]
+    ,
+    legend: {
+
+    top: '50%%',
+    show: true,
+    data: [
+      {
+        name: '야외'
+        ,
+        itemStyle: {
+          color: '#e5f5e0'
+        },
+        textStyle: {
+          color: '#fff'
+        },
+    },
+      {
+      name: '전기'
+      ,
+      itemStyle: {
+        color: '#a1d99b'
+      },
+      textStyle: {
+        color: '#fff'
+      }
     }
+  
+  ],
+    // textStyle: {
+    //         color: '#FF5733',  // 범례 텍스트 색상 설정
+    //     },
+    //  itemStyle: {
+    //         color: '#FF5733'  // 범례 아이콘 색상 설정
+    //  },
+
+    orient: 'vertical',
+    right: '0',
+   
     }
-  ]
 };
 
 if (option4 && typeof option4 === 'object') {
@@ -628,3 +754,141 @@ if (option4 && typeof option4 === 'object') {
 }
 
 window.addEventListener('resize', myChart4.resize);
+
+//일평균 충전 횟수
+var dom5 = document.getElementById('elecar_data_graph_05');
+var myChart5 = echarts.init(dom5, null, {
+  renderer: 'svg',
+  useDirtyRect: false
+});
+var app = {};
+
+var option5;
+
+option5 = {
+   grid : {
+         left: '15%',  // Y축 레이블 공간을 늘림      
+  },
+  xAxis: {
+    type: 'category',
+    data: ['2021', '2022', '2023'],
+    axisLabel: {
+        fontSize: 11,    
+        interval: 0 // 모든 레이블 표시
+    },
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      data: [2500, 4800, 4900],
+      type: 'bar'
+    }
+  ]
+};
+
+if (option5 && typeof option5 === 'object') {
+  myChart5.setOption(option5);
+}
+
+window.addEventListener('resize', myChart5.resize);
+
+//회당평균 충전량
+var dom6 = document.getElementById('elecar_data_graph_06');
+var myChart6 = echarts.init(dom6, null, {
+  renderer: 'svg',
+  useDirtyRect: false
+});
+var app = {};
+
+var option6;
+
+option6 = {
+   grid : {
+         top: '2%',  // Y축 레이블 공간을 늘림      
+          bottom:'10%'
+  },
+  xAxis: {
+    type: 'category',
+    data: ['2021', '2022', '2023'],
+    axisLabel: {      
+        interval: 0 // 모든 레이블 표시
+    },
+  },
+  yAxis: {
+    type: 'value',
+    scale: true,
+    axisLabel: {      
+        interval: 0 // 모든 레이블 표시
+    },
+    min: function(value) {
+        return value.min * 0.9;  // 최소값을 데이터 최소값의 90%로 설정
+    },
+    // max: function(value) {
+    //     return value.max * 1.1;  // 최대값을 데이터 최대값의 110%로 설정
+    // }
+  },
+  series: [
+    {
+      data: [17.5, 19.3, 21],
+      type: 'line'
+    }
+  ]
+};
+
+if (option6 && typeof option6 === 'object') {
+  myChart6.setOption(option6);
+}
+
+window.addEventListener('resize', myChart6.resize);
+
+//회당평균 충전 시간
+
+var dom7 = document.getElementById('elecar_data_graph_07');
+var myChart7 = echarts.init(dom7, null, {
+  renderer: 'svg',
+  useDirtyRect: false
+});
+var app = {};
+
+var option7;
+
+option7 = {
+   grid : {
+         top: '2%',  // Y축 레이블 공간을 늘림      
+         bottom:'10%'
+  },
+  xAxis: {
+    type: 'category',
+    data: ['2021', '2022', '2023'],
+    axisLabel: {      
+        interval: 0 // 모든 레이블 표시
+    },
+  },
+  yAxis: {
+    type: 'value',
+    scale: true,
+    axisLabel: {      
+        interval: 0 // 모든 레이블 표시
+    },
+    max: function(value) {
+        return value.max * 1;  // 최소값을 데이터 최소값의 90%로 설정
+    },
+    // max: function(value) {
+    //     return value.max * 1.1;  // 최대값을 데이터 최대값의 110%로 설정
+    // }
+  },
+  series: [
+    {
+      data: [28.4, 28.3, 26.9],
+      type: 'line'
+    }
+  ]
+};
+
+if (option7 && typeof option7 === 'object') {
+  myChart7.setOption(option7);
+}
+
+window.addEventListener('resize', myChart7.resize);
