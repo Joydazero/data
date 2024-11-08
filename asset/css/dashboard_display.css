@@ -5,48 +5,105 @@
 #electriccar_chargingstation_analysis_result .topbar-main{display:flex;align-items: center;justify-content: center;}
 #electriccar_chargingstation_analysis_result .wrapper{height: calc(100% - 70px); margin-top:10px; }
 #electriccar_chargingstation_analysis_result .topbar-main .inner h1{ display:flex;align-items: center;justify-content: center; font-weight:700; font-size:32px; letter-spacing:-0.05em;color:#1c1c1c;}
-#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box {background:#d9d9d9; padding:0 0 0 0;}
+#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box {background:#d9d9d9; padding:0 0 0 0;    flex: 1;   flex-direction: column; display:flex; height:auto;}  
 #electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area{ display:flex;}
 #electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view{ display:flex; flex-direction: column; align-items: center; justify-content: flex-start; border-radius:20px; } 
-#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view.inner-chart-view{ padding:0; display:flex; flex:1.5; float:none; }
+#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view.inner-chart-view{ padding:0; display:flex; flex:1.2; float:none;  flex:1; }
 #electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view.inner-chart-view .inner-card-box-wrap{ display:flex; flex-direction:column;float:none;width:100%;flex:1;}
-#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view.inner-chart-view .inner-card-box-wrap .chart-view{ width:100%; float:none; flex:1;margin-right:0; display:flex; height:auto;}
+#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view.inner-chart-view .inner-card-box-wrap .chart-view{ width:100%; float:none; flex:1;margin-right:0; display:flex; height:auto; align-items: center; justify-content: center;}
+#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view.inner-chart-view .inner-card-box-wrap > .chart-view{  padding:0; /* background:green;  */}
 #electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view.inner-chart-view .inner-card-box-wrap .inner-2depth-chart-view{ display:flex; flex:1;  flex-direction: row; width:100%; padding-left:0px; align-items: center;}
-#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view.inner-chart-view .inner-card-box-wrap .inner-2depth-chart-view .chart-view{ display:flex; flex:1;  }
+#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view.inner-chart-view .inner-card-box-wrap .inner-2depth-chart-view .chart-view{ display:flex; flex:1; }
 #electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view.inner-chart-view .inner-card-box-wrap .inner-3depth-chart-view{display:flex; flex:1;  flex-direction: column; width:100%; padding-left:0px;}
-#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area.chart-row-02 .chart-view:last-child{margin-right:0%; flex:0.8;}
-#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area.chart-row-02 > .chart-view:nth-of-type(1){flex:0.9;}
-#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area.chart-row-02 > .chart-view{ height:100%; min-height:400px;}
+#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view.inner-chart-view .inner-card-box-wrap .inner-2depth-chart-view > .chart-view{ padding:0;}
+/* #electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area.chart-row-02 .chart-view:last-child{margin-right:0%; flex:0.8; flex:1;}
+#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area.chart-row-02 > .chart-view:nth-of-type(1){flex:0.9; flex:1; }
+#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area.chart-row-02 > .chart-view{ height:100%; height:fit-content;  min-height:400px;} */
 #electriccar_chargingstation_analysis_result > .wrapper .container .chart-title{ display:flex; align-items:center;justify-content: center;font-size:20px;font-weight:700; line-height:1;margin-top:10px;}
-
-/* 그래프 */
-#elecar_data_graph_01 {position: relative;height: 100vh;overflow: hidden; height:280px; }
-#elecar_data_graph_02 {position: relative;height: 100vh;overflow: hidden; height:280px; }
-#elecar_data_graph_03 {position: relative;height: 100vh;overflow: hidden; height:280px; }
-#elecar_data_graph_04 {position: relative;height: 100vh;overflow: hidden; height:280px; }
-#elecar_data_graph_05 {position: relative;height: 100vh;overflow: hidden; height:280px; }
-#elecar_data_graph_06 {position: relative;height: 100vh;overflow: hidden; height:200px; }
-#elecar_data_graph_07 {position: relative;height: 100vh;overflow: hidden; height:200px; }
-#rest_area_chargingstation_data_01 {position: relative;height: 100vh; height:300px; }
-#rest_area_chargingstation_data_02 {position: relative;height: 100vh; height:300px; }
-#rest_area_chargingstation_data_03 {position: relative;height: 100vh; height:300px; }
-#rest_area_chargingstation_data_04 {position: relative;height: 100vh; height:300px; }
-#rest_area_chargingstation_data_05 {position: relative;height: 100vh; height:300px; }
-#rest_area_chargingstation_data_06 {position: relative;height: 100vh; height:300px; }
-#rest_area_chargingstation_data_07 {position: relative;height: 100vh; height:300px; }
-#rest_area_chargingstation_data_08 {position: relative;height: 100vh; height:300px; }
-#rest_area_chargingstation_data_09 {position: relative;height: 100vh; height:300px; }
+.col-lg-12{ float:none; display:flex; flex:1; }
+#elecar_data_graph_01 {position: relative;height: 100vh;overflow: hidden; height:20vh; }
+#elecar_data_graph_02 {position: relative;height: 100vh;overflow: hidden; height:20vh; }
+#elecar_data_graph_03 {position: relative;height: 100vh;overflow: hidden; height:20vh; }
+#elecar_data_graph_04 {position: relative;height: 100vh;overflow: hidden; /*height:280px;*/ height:20vh;  }
+#elecar_data_graph_05 {position: relative;height: 100vh;overflow: hidden; height:29.907vh; width:298px; }
+#elecar_data_graph_06 {position: relative;height: 100vh;overflow: hidden; height:14.953vh; width:297px; }
+#elecar_data_graph_07 {position: relative;height: 100vh;overflow: hidden; height:14.953vh; width:297px; }
+#rest_area_chargingstation_data_01 {position: relative;/* height:620px;  *//* height:300px;  height:600px; */  height:56vh; }
+#rest_area_chargingstation_data_02 {position: relative;height: 100vh; /* height:300px; */ /* height:600px; */  width:100%; height:56vh; }
+#rest_area_chargingstation_data_03 {position: relative;height: 100vh; /* height:300px; */ /* height:600px; */  width:100%; height:56vh;}
+#rest_area_chargingstation_data_04 {position: relative;height: 100vh; /* height:300px; */ /* height:600px; */  width:100%; height:56vh;}
+#rest_area_chargingstation_data_05 {position: relative;height: 100vh; /* height:300px; */ /* height:600px; */  width:100%; height:56vh;}
+#rest_area_chargingstation_data_06 {position: relative;height: 100vh; /* height:300px; */ /* height:600px; */ width:100%; height:56vh;}
+#rest_area_chargingstation_data_07 {position: relative;height: 100vh; /* height:300px;  *//* height:600px; */ width:100%; height:56vh;}
+#rest_area_chargingstation_data_08 {position: relative;height: 100vh; /* height:300px;  *//* height:600px; */ width:100%; height:56vh;}
+#rest_area_chargingstation_data_09 {position: relative;height: 100vh; /* height:300px; */ /* height:600px; */ width:100%; height:56vh;}
+#elecar_data_table_01 {position: relative;height: 100vh; /* height:300px; */ /* height:620px; */ height:14.953vh; width:100%; }
+#btm-mid-box{ width:300px; min-width:300px; flex:1; }
+#electriccar_chargingstation_analysis_result .chart-area .chart-view.type02 .view.map-view{ width:500px; margin:0 auto;     flex-grow: 0.5;     justify-content: center;}  
+#map{position: relative;height: 100vh;/*  height:800px;  width:400px;*/  /* height:670px;  */ height:600px; }
 #electriccar_chargingstation_analysis_result .chart-area .chart-view.type02 .view{ min-width:350px; padding-left:0; min-width:350px; }
-#electriccar_chargingstation_analysis_result  table caption{ visibility:hidden; opacity:0; overflow:hidden; height:0; text-indent:-9999px; }
+#electriccar_chargingstation_analysis_result .chart-area .chart-view.type02 .view.station-operation-table-view{ display:flex; flex-grow:1; position:relative; }
+#electriccar_chargingstation_analysis_result  table caption{ visibility:hidden; opacity:0; overflow:hidden; height:0; text-indent:-9999px; padding-top:0px;padding-bottom:0px;}
+#electriccar_chargingstation_analysis_result  .station_operation_table_wrap{ display:flex; display: flex;    flex: 1;    align-items: center; }
 #electriccar_chargingstation_analysis_result  .station_operation_table_wrap table{ width:100%; border-spacing:0;border-spacing:0;}
 #electriccar_chargingstation_analysis_result  .station_operation_table_wrap table th,
 #electriccar_chargingstation_analysis_result  .station_operation_table_wrap table td{  border:1px solid #666; box-sizing: border-box; }
-#electriccar_chargingstation_analysis_result  .station_operation_table_wrap table th{ font-weight:700; text-align:center; padding:5px 5px; }
-#electriccar_chargingstation_analysis_result  .station_operation_table_wrap table td{ text-align:center;  padding:5px 10px; }
+#electriccar_chargingstation_analysis_result  .station_operation_table_wrap table th{ font-weight:700; text-align:center; padding:5px 5px; line-height:1.1;}
+#electriccar_chargingstation_analysis_result  .station_operation_table_wrap table td{ text-align:center;  padding:5px 10px; line-height:1.1;  }
 #electriccar_chargingstation_analysis_result .rest_area_tab{ display:flex; flex-wrap: wrap; gap:2px 12px; margin:0 20px;  justify-content: center;align-items: flex-start; margin-top:10px;}
-#electriccar_chargingstation_analysis_result .rest_area_tab > li span{ cursor:pointer;  }
-#electriccar_chargingstation_analysis_result .rest_area_tab > li.on span{ color:#fff;}
-#electriccar_chargingstation_analysis_result .tab_contents{visibility: hidden;  overflow:hidden; opacity:0; height:0;}
+#electriccar_chargingstation_analysis_result .rest_area_tab > li span{ cursor:pointer;display: inline-flex;    background: rgba(0, 0, 0, 0.15);    padding: 1px 3px;    border-radius: 3px; }
+#electriccar_chargingstation_analysis_result .rest_area_tab > li.on span{ color:#fff;  background:rgba(0,14,89,0.9);}
+#electriccar_chargingstation_analysis_result .tab_contents{visibility: hidden;  overflow:hidden; opacity:0; height:0; display:flex;  }
 #electriccar_chargingstation_analysis_result .tab_contents.active{visibility: visible;  overflow:visible; opacity:1;height:auto; }
-
+.chart-elecar-04{ flex:1 !important;}
+.chart-elecar-05{ flex:1 !important;; }
 .chart-elecar-04 > .view{ width:600px; }
+.chart-area .chart-view{ height:auto; }
+ #electriccar_chargingstation_analysis_result .chart-area .chart-view.type02 .view{ display:flex; flex-direction: column; width:100%; flex-grow: 0;      flex-shrink: 0;   flex-basis: auto; }
+#electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view {    align-items: stretch;    justify-content: stretch; float:none;}
+.inner-view-con-04-wrap{ display:flex; flex-direction: column; gap:5px; display: flex;  flex: 1;}
+.inner-view-con-04{  display: flex;  flex: 1;     flex-direction: column; }
+.inner-view-con-02-wrap{ display:flex; flex-direction: column;     display: flex;    flex: 1; width: 100%;     justify-content: center;}
+.inner-view-con-02{  display: flex;    flex: 1; width: 100%;justify-content: center;    align-items: center;  height:inherit; flex-grow: 0;      flex-shrink: 0;  flex-basis: auto;}
+.inner-view-con-03-wrap{ display:flex; flex-direction: row; width: 100%; }
+.inner-view-con-03{ width: 100%;     display: flex;    flex-direction: column; flex:1; height:inherit;}
+.inner-view-con-02-01{flex:0.5; flex:auto;flex-grow: 0.5;      flex-shrink: 0;    flex-basis: auto;}
+/* .inner-view-con-02-02{ flex:1; align-items: stretch; flex:auto;}
+.inner-view-con-03-01{ justify-content: center;} */
+.inner-view-con-03-02{}
+.mid-view{ flex:auto !important; }
+.txtwrap{ position:relative; }
+.station-operation-txt{ position:absolute;top:0%;left:50%;transform:translate(-50%,-50%);margin-top:14px; font-weight:700; color:#9cff00;  font-size:24px; }
+.station-operation-txt b{ font-weight:700; color:#9cff00;  font-size:24px; }
+.station-operation-per-txt{ position:absolute;top:-20px;right:20px; background:#fff; width:70px; height:40px; border:1px solid rgb(153, 153, 153); }
+.station-operation-per-txt p{color:#ff0000;   font-size: 16px;  font-family: sans-serif;  font-weight: bold; line-height:16px; margin:0 0 0 0; text-align:center; }
+ @media (max-width: 1600px) { 
+    body{ border:1px solid yellow;}
+    #electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area{ flex-wrap: wrap; width:100%; justify-content: space-between; }
+    .chart-view.type02.m-b-10{ width:49%; margin-right:0;}
+     #chart-view-map{  width:100%; }
+     #elecar_data_graph_05 { width:100%;  }
+     #elecar_data_graph_06 { width:100%;  }
+     #elecar_data_graph_07 { width:100%;  }
+ }
+
+ @media (max-width: 980px){
+   .chart-view.type02.m-b-10{ width:100%; }  
+   .inner-view-con-03-wrap{    flex-direction: column;}
+   #electriccar_chargingstation_analysis_result .station_operation_table_wrap table th{ height:3.271vh;}
+ 	body{ border:1px solid blue; }
+   #elecar_data_graph_01 { height:30vh; }
+   #elecar_data_graph_02 { height:30vh; }
+   #elecar_data_graph_03 { height:30vh; }
+   #elecar_data_graph_04 { height:30vh; }
+   #elecar_data_graph_05 { height:30vh; }
+   #elecar_data_graph_06 { height:30vh; }
+   #elecar_data_graph_07 { height:30vh; }
+   #elecar_data_graph_08 { height:30vh; }
+   #elecar_data_graph_09 { height:30vh; }
+   .col-lg-12{ display:block; }
+   .txtwrap{display:flex;justify-content: space-between;}
+   .station-operation-txt{ position:relative;}
+   .station-operation-per-txt{ position:relative; }
+   #electriccar_chargingstation_analysis_result .topbar-main .inner h1{ font-size:22px; }
+ }

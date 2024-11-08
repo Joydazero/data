@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전기차 충전소 설치 및 확충 우선순위 분석결과 2024</title>
+    <!-- css -->
+    <link rel="stylesheet" href="/asset/css/reset.css">
+    <link rel="stylesheet" href="/asset/css/bootstrap.css">
+    <link rel="stylesheet" href="/asset/css/components.css">
+    <link rel="stylesheet" href="/asset/css/core.css">
+    <link rel="stylesheet" href="/asset/css/dashboard_display.css">
+    <!-- js -->
+    <script src="/asset/js/jquery-1.9.1.min.js"></script>
+     <!-- Highcharts -->
+    <!-- <script type="text/javascript" src="/asset/js/solid-gauge.js"></script>
+    <script type="text/javascript" src="/asset/js/highcharts.js"></script>
+    <script type="text/javascript" src="/asset/js/highcharts-more.js"></script> -->
+    <script src="/asset/js/modernizr.min.js"></script>
+    <script src="/asset/js/bootstrap.min.js"></script>
+    <script src="/asset/js/jquery.app.js"></script>
+    <script src="/asset/js/jquery.cookie.js"></script>
+    <script src="/asset/js/jquery.core.js"></script>
+    <script src="/asset/js/jquery.ui.js"></script>   
+    <!-- <script src="/asset/js/echarts.js"></script>    -->
+    <script src="/asset/js/echarts.min.js"></script>   
+    <!-- <script src="/asset/js/echarts.js"></script>    -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script> -->
+    <!-- GeoJSON 변환 JS -->
+    <!-- <script type="text/javascript" src="/asset/js/geojsonTojs/node_20240925.js"></script>
+    <script type="text/javascript" src="/asset/js/geojsonTojs/link_20240925.js"></script> -->
+    <!-- JS -->
+    <!-- <script defer type="text/javascript" src="/asset/js/realtime_map.js"></script>
+    <script type="text/javascript" src="/asset/js/realtime_map_datainfo.js"></script> -->
+</head>
+<body>
+    <div class="all-wrapper" id="electriccar_chargingstation_analysis_result">
+        <header id="topnav">
+            <div class="topbar-main">
+                <div class="inner">
+                    <h1>전기차 충전소 설치·확충 우선순위 분석결과 (2024년)</h1>
+                </div>
+            </div>
+        </header>
+        <div class="wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                       <div class="content">
+                            <div class="pane">
+                                <div class="row m-b-20">
+                                    <div class="col-lg-12">
+                                        <div class="card-box">
+                                            <div class="chart-area chart-row-01">
+                                                <div class="chart-view type02 m-b-10">
+                                                    <p class="chart-title">일 전기차 교통량</p>
+                                                    <div class="view">
+                                                        <div id="elecar_data_graph_01" style="width: 100%;"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="chart-view type02 m-b-10">
+                                                    <p class="chart-title">일 충전량</p>
+                                                    <div class="view">
+                                                         <div id="elecar_data_graph_02" style="width: 100%;"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="chart-view type02 m-b-10">
+                                                    <p class="chart-title">일 충전 횟수</p>
+                                                    <div class="view">
+                                                        <div id="elecar_data_graph_03" style="width: 100%;"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="chart-view type02 m-b-10">
+                                                    <p class="chart-title">충전소 운영현황</p>
+                                                    <div class="view">
+                                                        <div class="station_operation_table_wrap">
+                                                            <table>
+                                                                <caption>충전소 운영현황 표</caption>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th></th>
+                                                                        <th>500kw</th>
+                                                                        <th>100kw</th>
+                                                                        <th>200kw</th>
+                                                                        <th>300k2</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">환경부</th>
+                                                                        <td>255</td>
+                                                                        <td>284</td>
+                                                                        <td>44</td>
+                                                                        <td>65</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                         <th scope="row">한전</th>
+                                                                         <td>6</td>
+                                                                         <td>91</td>
+                                                                         <td>0</td>
+                                                                         <td>8</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                         <th scope="row">현대차</th>
+                                                                         <td>0</td>
+                                                                         <td>24</td>
+                                                                         <td>0</td>
+                                                                         <td>48</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">민자</th>
+                                                                        <td>10</td>
+                                                                        <td>43</td>
+                                                                        <td>240</td>
+                                                                        <td>300</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="chart-area chart-row-02">
+                                                <div class="chart-view type02 m-b-10">
+                                                    <p class="chart-title">휴게소별 월 충전현황</p>
+                                                    <div class="view">
+                                                        <ul class="rest_area_tab">
+                                                            <li><span>수도권본부</span></li>
+                                                            <li><span>강원본부</span></li>
+                                                            <li><span>충북본부</span></li>
+                                                            <li><span>대전충남본부</span></li>
+                                                            <li><span>전북본부</span></li>
+                                                            <li><span>광주전남본부</span></li>
+                                                            <li><span>대구경북본부</span></li>
+                                                            <li><span>부산경남본부</span></li>
+                                                        </ul>
+                                                        <div class="tab_contents active"><div id="rest_area_chargingstation_data_01" style="width: 100%;"></div></div>
+                                                        <div class="tab_contents"><div id="rest_area_chargingstation_data_02" style="width: 100%;"></div></div>
+                                                        <div class="tab_contents"><div id="rest_area_chargingstation_data_03" style="width: 100%;"></div></div>
+                                                        <div class="tab_contents"><div id="rest_area_chargingstation_data_04" style="width: 100%;"></div></div>
+                                                        <div class="tab_contents"><div id="rest_area_chargingstation_data_05" style="width: 100%;"></div></div>
+                                                        <div class="tab_contents"><div id="rest_area_chargingstation_data_06" style="width: 100%;"></div></div>
+                                                        <div class="tab_contents"><div id="rest_area_chargingstation_data_07" style="width: 100%;"></div></div>
+                                                        <div class="tab_contents"><div id="rest_area_chargingstation_data_08" style="width: 100%;"></div></div>
+                                                        <div class="tab_contents"><div id="rest_area_chargingstation_data_09" style="width: 100%;"></div></div>
+                                                    </div>
+                                                </div>
+                                                <div class="chart-view type02 m-b-10 inner-chart-view" id="btm-mid-box">
+                                                    <div class="inner-card-box-wrap">
+                                                        <div class="chart-view chart-elecar-04">
+                                                            <p class="chart-title">연도별 전기차 누적등록현황</p>
+                                                            <div class="view">
+                                                              <div id="elecar_data_graph_04" style="width: 100%;"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="chart-view chart-elecar-05">                                                        
+                                                            <div class="view inner-2depth-chart-view">
+                                                                <div class="chart-view">
+                                                                    <p class="chart-title">일평균 충전 횟수</p>
+                                                                    <div class="view">
+                                                                        <div id="elecar_data_graph_05" style="width: 100%;"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="chart-view">
+                                                                    <div class="view">
+                                                                        <div class="inner-3depth-chart-view">
+                                                                            <div class="chart-view">
+                                                                                <p class="chart-title">회당평균충전량</p>
+                                                                                <div class="view">
+                                                                                   <div id="elecar_data_graph_06" style="width: 100%;"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="chart-view">
+                                                                                <p class="chart-title">회당평균충전시간</p>
+                                                                                <div class="view">
+                                                                                  <div id="elecar_data_graph_07" style="width: 100%;"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>    
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- inner-2depth-chart-view -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                 <div class="chart-view type02 m-b-10">
+                                                    <p class="chart-title">입지선정분석 결과</p>
+                                                    <div class="view map-view">
+                                                        <div id="map" style="width: 100%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- chart-row-02 -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                       </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script>
+let xAxisData = ['철수','영희','민수','지수']; // x축 데이터 배열 생성
+        let seriesData = [70,80,100,30]; // 값 데이터 배열 생성
+
+        window.onload = function() { // 페이지 로드 시 실행
+
+            document.getElementById("drawLine").addEventListener('click', drawChart); // Line Chart 버튼 클릭 시 이벤트 정의 : drawChart 매서드 실행
+            document.getElementById("drawBar").addEventListener('click', drawChart); // Bar Chart 버튼 클릭 시 이벤트 정의 : drawChart 매서드 실행
+
+        }
+
+        function drawChart () { 
+
+		var myChart = echarts.init(document.getElementById('elecar_data_graph_01')); // echarts init 메소드로 id=chart인 DIV에 차트 초기화
+		
+		option = { // 차트를 그리는데 활용 할 다양한 옵션 정의
+                    xAxis: {
+                        type: 'category',
+                        data: xAxisData // 위에서 정의한 X축 데이터
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                        data: seriesData, // 위에서 정의한 값 데이터
+                        type: this.value // 버튼의 value 데이터 ('line' or 'bar')
+                        }
+                    ]
+                        };
+        
+		myChart.setOption(option); // 차트 디스플레이
+	}
+
+    </script> -->
+    <!-- <script>
+    //일 전기차 교통량
+var dom = document.getElementById('elecar_data_graph_01');
+var myChart = echarts.init(dom, null, {
+  renderer: 'canvas',
+  useDirtyRect: false
+});
+var app = {};
+
+var option;
+
+option = {
+  xAxis: {
+    type: 'category',
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
+  yAxis: {
+    type: 'value'
+  },
+  series: [
+    {
+      data: [150, 230, 224, 218, 135, 147, 260],
+      type: 'line'
+    }
+  ]
+};
+
+
+if (option && typeof option === 'object') {
+  myChart.setOption(option);
+}
+
+window.addEventListener('resize', myChart.resize);
+
+    </script> -->
+    <script src="/asset/js/platform_data_analysis_ui.js"></script>
+    <script src="/asset/js/platform_data_analysis.js"></script>
+
+    <script>
+	var ROOT_PATH = "/asset/js/";
+	var chartDom = document.getElementById("map");
+	var myChart0 = echarts.init(chartDom);
+
+	var option0;
+	
+	$.getJSON(ROOT_PATH + "/22.json", function (geoJson) {
+		echarts.registerMap("KOREA", geoJson);
+		 myChart0.setOption(option0 = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{b}',
+                 showContent: false
+            },
+            legend: {
+                 orient: 'vertical',
+                left: 'right',
+                data: ['1순위 노선', '2순위 노선', '3순위 노선', '그 외'],
+                textStyle: {
+                    color: '#fff', // 텍스트 색상
+                    fontSize: 14 // 텍스트 크기
+                },
+                inactiveColor: '#000', 
+                selectedMode: 'single', // 다중 선택 가능
+                itemWidth: 40, // 구별점 너비
+                itemHeight: 14, // 구별점 높이
+                itemGap: 10, // 항목 간 간격
+                icon: 'rect', // 아이콘 모양 (예: 'circle', 'rect')
+                selected: false,      
+                inactiveBorderColor: '#fff',
+                inactiveBorderWidth: 1
+            },
+            geo: {
+                map: 'KOREA',
+                roam: true,
+                label: {
+                    show: true,
+                    color: '#0000000',
+                    emphasis: {
+                        show: true,
+                        color: '#ff0000'
+                    },
+                },
+            },
+            series: [
+                {
+                    name: '1순위 노선',
+                    type: 'lines',
+                    coordinateSystem: 'geo',
+                    textStyle:{
+                        color: '#333'
+                    },
+                    lineStyle: {
+                        color: '#ff3333',
+                        width: 5,
+                    },
+                    data: [
+                        { coords: [[126.9780, 37.5665], [129.0756, 35.1796]] }, // 예시: 서울-부산
+                        // 추가 경로 데이터
+                    ]
+                },
+                {
+                    name: '2순위 노선',
+                    type: 'lines',
+                    coordinateSystem: 'geo',
+                    //  textStyle:{
+                    //     color: '#fff'
+                    // },
+                    lineStyle: {
+                        color: '#33ff33',
+                        width: 2,
+                    },
+                    data: [
+                        { coords: [[127.3845, 36.3504], [129.0756, 35.1796]] }, // 예시: 대전-부산
+                        // 추가 경로 데이터
+                    ]
+                },
+                {
+                    name: '3순위 노선',
+                    type: 'lines',
+                    coordinateSystem: 'geo',
+                    //  textStyle:{
+                    //     color: '#fff'
+                    // },
+                    lineStyle: {
+                        color: '#3333ff',
+                        width: 2,
+                    },
+                    data: [
+                        { coords: [[126.9780, 37.5665], [126.7052, 37.4563]] }, // 예시: 서울-인천
+                        // 추가 경로 데이터
+                    ]
+                },
+                {
+                    name: '그 외',
+                    type: 'lines',
+                    coordinateSystem: 'geo',
+                    //  textStyle:{
+                    //     color: '#fff'
+                    // },
+                    lineStyle: {
+                        color: '#bbbbbb',
+                        width: 1,
+                        type: 'dashed'
+                    },
+                    data: [
+                        // 그 외의 노선 추가
+                    ]
+                }
+            ]
+        });
+    });
+
+    option0 && myChart0.setOption(option0);
+</script>
+
+<script>
+    function setEqualHeight(selector) {
+        // 모든 박스를 가져오기
+        const elements = document.querySelectorAll(selector);
+        
+        // 가장 큰 높이를 찾기
+        let maxHeight = 0;
+        elements.forEach(element => {
+            const elementHeight = element.offsetHeight;
+            if (elementHeight > maxHeight) {
+                maxHeight = elementHeight;
+            }
+        });
+
+        // 모든 박스에 동일한 높이 적용
+        elements.forEach(element => {
+            element.style.height = maxHeight + 'px';
+        });
+    }
+
+    // 페이지 로드 후 높이 맞추기
+    window.addEventListener('load', () => setEqualHeight('.chart-row-02 > .chart-view'));
+
+    // 창 크기 변경 시 높이 재조정 (선택 사항)
+    window.addEventListener('resize', () => {
+        // 높이를 초기화한 뒤 다시 맞춤
+        document.querySelectorAll('.chart-row-02 > .chart-view').forEach(element => {
+            element.style.height = 'auto';
+        });
+        setEqualHeight('.chart-row-02 > .chart-view');
+    });
+</script>
+</body>
+</html>

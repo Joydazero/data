@@ -6,10 +6,46 @@ var myChart = echarts.init(dom, null, {
   useDirtyRect: false
 });
 var app = {};
-
 var option;
+let elecarDataTrafficNum = 3779;
+let elecarDataTrafficCpdayPer = -5;
 
 option = {
+  graphic: [
+       {
+            type: 'text',
+            left: '45%',
+            top: '3%',             
+            //rotation: Math.PI / 2,
+            style: {
+                text: `${elecarDataTrafficNum}대`,  
+                fontSize: 24,
+                fontWeight: 'bold',
+                fill: '#9cff00'  
+             }
+         },
+       {
+            type: 'rect',
+            right: '10%',
+            top: '2%', 
+            shape: {
+              width: 70,
+              height: 40
+            },
+            style: {
+                text: `${elecarDataTrafficCpdayPer}%\n전일대비`,  
+                fontSize: 16,
+                fontWeight: 'bold',
+                fill: '#fff',
+                stroke: '#999',
+                lineWidth: 1,
+                textFill: '#009cff',
+                textAlign: 'center',   
+                //textVerticalAlign: 'middle'    
+             }
+        }
+      ]
+    ,
   xAxis: {
     type: 'category',
     data: ['2024-­10­-21', '2024-­10­-21', '2024-­10­-21', '2024-­10­-21'],
@@ -20,12 +56,14 @@ option = {
         interval: 0 // 모든 레이블 표시
     },
     grid: {
-      containLabel: true
+      containLabel: true,      
+      bottom: '0%',
     }
   },
   yAxis: {
     type: 'value',
-    show: false
+    show: false,
+     scale: true,
   },
 //    dataZoom: {
 //     start: 60,
@@ -35,7 +73,13 @@ option = {
     {
       data: [2500, 3100, 4000, 3779],
       type: 'line',
-      label: {  show: true  }
+      label: {  show: true  },
+      symbol: 'circle', // 심볼 모양
+      symbolSize: 8, 
+      itemStyle: {
+                color: '#ff9c00' 
+      },
+      lineStyle: {  color: '#ff9c00' }      
     }
   ]
 };
@@ -54,10 +98,46 @@ var myChart2 = echarts.init(dom2, null, {
   useDirtyRect: false
 });
 var app = {};
-
 var option2;
+let elecarDataChargeNum = 300;
+let elecarDataChargeCpdayPer = 20;
 
 option2 = {
+  graphic: [
+       {
+            type: 'text',
+            left: '45%',
+            top: '3%',             
+            //rotation: Math.PI / 2,
+            style: {
+                text: `${elecarDataChargeNum}Wh`,  
+                fontSize: 24,
+                fontWeight: 'bold',
+                fill: '#9cff00'  
+             }
+         },
+       {
+            type: 'rect',
+            right: '10%',
+            top: '2%', 
+            shape: {
+              width: 70,
+              height: 40
+            },
+            style: {
+                text: `${elecarDataChargeCpdayPer}%\n전일대비`,  
+                fontSize: 16,
+                fontWeight: 'bold',
+                fill: '#fff',
+                stroke: '#999',
+                lineWidth: 1,
+                textFill: '#ff0000',
+                textAlign: 'center',   
+                //textVerticalAlign: 'middle'    
+             }
+        }
+      ]
+    ,
   xAxis: {
     type: 'category',
     data: ['2024-­10­-21', '2024-­10­-21', '2024-­10­-21', '2024-­10­-21'],
@@ -77,7 +157,11 @@ option2 = {
     {
       data: [300, 200, 250, 300],
       type: 'bar',
-      label: {  show: true  }
+      label: {  show: true  },
+      barWidth : "40%",
+      itemStyle: {
+                color: '#ff9c00' 
+      }
     }
   ]
 };
@@ -95,10 +179,46 @@ var myChart3 = echarts.init(dom3, null, {
   useDirtyRect: false
 });
 var app = {};
+var option3;
+let elecarDataChargeCountNum = 4800;
+let elecarDataChargeCountPer = -4;
 
-var option;
-
-option = {
+option3 = {
+  graphic: [
+       {
+            type: 'text',
+            left: '45%',
+            top: '3%',             
+            //rotation: Math.PI / 2,
+            style: {
+                text: `${elecarDataChargeCountNum}건`,  
+                fontSize: 24,
+                fontWeight: 'bold',
+                fill: '#9cff00'  
+             }
+         },
+       {
+            type: 'rect',
+            right: '10%',
+            top: '2%', 
+            shape: {
+              width: 70,
+              height: 40
+            },
+            style: {
+                text: `${elecarDataChargeCountPer}%\n전일대비`,  
+                fontSize: 16,
+                fontWeight: 'bold',
+                fill: '#fff',
+                stroke: '#999',
+                lineWidth: 1,
+                 textFill: '#009cff',
+                textAlign: 'center',   
+                //textVerticalAlign: 'middle'    
+             }
+        }
+      ]
+    ,
   xAxis: {
     type: 'category',
     data: ['2024-­10­-21', '2024-­10­-21', '2024-­10­-21', '2024-­10­-21'],
@@ -109,19 +229,31 @@ option = {
   },
   yAxis: {
     type: 'value',
-    show: false
+    show: false,
+     min: function(value) {
+        return value.min * 0.9;  // 최소값을 데이터 최소값의 90%로 설정
+    },
+    max: function(value) {
+        return value.max * 1.1;  // 최대값을 데이터 최대값의 110%로 설정
+    }
   },
   series: [
     {
       data: [4820, 4900, 5000, 4800],
       type: 'line',
-      label: {  show: true  }
+      label: {  show: true  },
+      symbol: 'circle', // 심볼 모양
+      symbolSize: 8, 
+      itemStyle: {
+                color: '#ff9c00' 
+      },
+      lineStyle: {  color: '#ff9c00' }  
     }
   ]
 };
 
-if (option && typeof option === 'object') {
-  myChart3.setOption(option);
+if (option3 && typeof option3 === 'object') {
+  myChart3.setOption(option3);
 }
 
 window.addEventListener('resize', myChart3.resize);
@@ -143,7 +275,7 @@ optionRest01 = {
          left: '30%',  // Y축 레이블 공간을 늘림        
          right: '15%',
           top: '8%',     // 상단 여백을 좁게 설정
-        bottom: '15%'   // 하단 여백을 좁게 설정
+        bottom: '8%'   // 하단 여백을 좁게 설정
   },
   xAxis: {
     type: 'value',
@@ -200,7 +332,7 @@ optionRest02 = {
          left: '30%',  // Y축 레이블 공간을 늘림        
          right: '15%',
           top: '8%',     // 상단 여백을 좁게 설정
-        bottom: '15%'   // 하단 여백을 좁게 설정
+        bottom: '8%'   // 하단 여백을 좁게 설정
   },
   xAxis: {
     type: 'value',
@@ -256,7 +388,7 @@ optionRest03 = {
          left: '30%',  // Y축 레이블 공간을 늘림        
          right: '15%',
           top: '8%',     // 상단 여백을 좁게 설정
-        bottom: '15%'   // 하단 여백을 좁게 설정
+        bottom: '8%'   // 하단 여백을 좁게 설정
   },
   xAxis: {
     type: 'value',
@@ -312,7 +444,7 @@ optionRest04 = {
          left: '30%',  // Y축 레이블 공간을 늘림        
          right: '15%',
           top: '8%',     // 상단 여백을 좁게 설정
-        bottom: '15%'   // 하단 여백을 좁게 설정
+        bottom: '8%'   // 하단 여백을 좁게 설정
   },
   xAxis: {
     type: 'value',
@@ -369,7 +501,7 @@ optionRest05 = {
          left: '30%',  // Y축 레이블 공간을 늘림        
          right: '15%',
           top: '8%',     // 상단 여백을 좁게 설정
-        bottom: '15%'   // 하단 여백을 좁게 설정
+        bottom: '8%'   // 하단 여백을 좁게 설정
   },
   xAxis: {
     type: 'value',
@@ -426,7 +558,7 @@ optionRest06 = {
          left: '30%',  // Y축 레이블 공간을 늘림        
          right: '15%',
           top: '8%',     // 상단 여백을 좁게 설정
-        bottom: '15%'   // 하단 여백을 좁게 설정
+        bottom: '8%'   // 하단 여백을 좁게 설정
   },
   xAxis: {
     type: 'value',
@@ -482,7 +614,7 @@ optionRest07 = {
          left: '30%',  // Y축 레이블 공간을 늘림        
          right: '15%',
           top: '8%',     // 상단 여백을 좁게 설정
-        bottom: '15%'   // 하단 여백을 좁게 설정
+        bottom: '8%'   // 하단 여백을 좁게 설정
   },
   xAxis: {
     type: 'value',
@@ -538,7 +670,7 @@ optionRest08 = {
          left: '30%',  // Y축 레이블 공간을 늘림        
          right: '15%',
           top: '8%',     // 상단 여백을 좁게 설정
-        bottom: '15%'   // 하단 여백을 좁게 설정
+        bottom: '8%'   // 하단 여백을 좁게 설정
   },
   xAxis: {
     type: 'value',
@@ -686,12 +818,12 @@ option4 = {
      graphic: [
        {
             type: 'text',
-            left: 'left',
+            left: '1%',
             top: 'middle',  // 범례 위에 위치하도록 설정
             rotation: Math.PI / 2,
             style: {
                 text: '전체차량등록수',  // 제목 텍스트
-                fontSize: 16,
+                fontSize: 13,
                 fontWeight: 'bold',
                 fill: '#fff'  // 텍스트 색상 설정
              }
@@ -806,8 +938,10 @@ var option6;
 
 option6 = {
    grid : {
-         top: '2%',  // Y축 레이블 공간을 늘림      
-          bottom:'10%'
+         top: '5%',  // Y축 레이블 공간을 늘림      
+          bottom:'15%',
+          left:'13%',
+          right:'5%'
   },
   xAxis: {
     type: 'category',
@@ -856,8 +990,10 @@ var option7;
 
 option7 = {
    grid : {
-         top: '2%',  // Y축 레이블 공간을 늘림      
-         bottom:'10%'
+         top: '5%',  // Y축 레이블 공간을 늘림      
+         bottom:'15%',
+           left:'13%',
+            right:'5%'
   },
   xAxis: {
     type: 'category',
@@ -892,3 +1028,12 @@ if (option7 && typeof option7 === 'object') {
 }
 
 window.addEventListener('resize', myChart7.resize);
+
+//충전소 운영현황 TEXT
+
+const stationOperationTxt = "1418";
+const stationOperationTxtFormatter = stationOperationTxt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+const stationOperationPerTxt = "50";
+document.getElementById("station-operation-txt").innerHTML = stationOperationTxtFormatter;
+document.getElementById("station-operation-per-txt").innerHTML = stationOperationPerTxt;

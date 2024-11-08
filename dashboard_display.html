@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>전기차 충전소 설치 및 확충 우선순위 분석결과 2024</title>
     <!-- css -->
     <link rel="stylesheet" href="/asset/css/reset.css">
@@ -12,17 +12,14 @@
     <link rel="stylesheet" href="/asset/css/dashboard_display.css">
     <!-- js -->
     <script src="/asset/js/jquery-1.9.1.min.js"></script>
-     
     <script src="/asset/js/modernizr.min.js"></script>
     <script src="/asset/js/bootstrap.min.js"></script>
     <script src="/asset/js/jquery.app.js"></script>
     <script src="/asset/js/jquery.cookie.js"></script>
     <script src="/asset/js/jquery.core.js"></script>
     <script src="/asset/js/jquery.ui.js"></script>   
-    <script src="/asset/js/echarts.min.js"></script>   
-    <!-- <script src="/asset/js/echarts.js"></script>    -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script> -->
-
+    <script src="/asset/js/echarts.js"></script>   
+    <!-- <script src="/asset/js/echarts.min.js"></script>    -->
 </head>
 <body>
     <div class="all-wrapper" id="electriccar_chargingstation_analysis_result">
@@ -62,8 +59,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="chart-view type02 m-b-10">
-                                                    <p class="chart-title">충전소 운영현황</p>
-                                                    <div class="view">
+                                                    <p class="chart-title">충전소 운영현황</p>                                                    
+                                                    <div class="view station-operation-table-view">
+                                                        <div class="txtwrap">
+                                                           <p class="station-operation-txt"><b id="station-operation-txt"></b>기</p>
+                                                            <div class="station-operation-per-txt" >
+                                                            <p><em id="station-operation-per-txt"></em>%<br>전년대비</p>
+                                                            </div>
+                                                        </div>
                                                         <div class="station_operation_table_wrap">
                                                             <table>
                                                                 <caption>충전소 운영현황 표</caption>
@@ -136,49 +139,41 @@
                                                         <div class="tab_contents"><div id="rest_area_chargingstation_data_09" style="width: 100%;"></div></div>
                                                     </div>
                                                 </div>
-                                                <div class="chart-view type02 m-b-10 inner-chart-view">
-                                                    <div class="inner-card-box-wrap">
-                                                        <div class="chart-view chart-elecar-04">
-                                                            <p class="chart-title">연도별 전기차 누적등록현황</p>
-                                                            <div class="view">
-                                                              <div id="elecar_data_graph_04" style="width: 100%;"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="chart-view">                                                        
-                                                            <div class="view inner-2depth-chart-view">
-                                                                <div class="chart-view">
-                                                                    <p class="chart-title">일평균 충전 횟수</p>
-                                                                    <div class="view">
-                                                                        <div id="elecar_data_graph_05" style="width: 100%;"></div>
+                                                <div class="chart-view type02 m-b-10" >
+                                                <p class="chart-title">연도별 전기차 누적등록현황</p>
+                                                <div class="view mid-view">                                                   
+                                                       <div class="inner-view-con-02-wrap">                                                         
+                                                        <div class="inner-view-con-02 inner-view-con-02-01">
+                                                             <div id="elecar_data_graph_04" style="width: 100%;"></div>
+                                                        </div>                                                
+                                                        <div class="inner-view-con-02 inner-view-con-02-02">
+                                                            <div class="inner-view-con-03-wrap">
+                                                                    <div class="inner-view-con-03 inner-view-con-03-01">
+                                                                        <p class="chart-title">일 평균 충전 횟수</p>
+                                                                        <div id="elecar_data_graph_05" ></div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="chart-view">
-                                                                    <div class="view">
-                                                                        <div class="inner-3depth-chart-view">
-                                                                            <div class="chart-view">
-                                                                                <p class="chart-title">회당평균충전량</p>
-                                                                                <div class="view">
-                                                                                   <div id="elecar_data_graph_06" style="width: 100%;"></div>
-                                                                                </div>
+                                                                    <div class="inner-view-con-03 inner-view-con-03-02">
+                                                                        <div class="inner-view-con-04-wrap">
+                                                                            <div class="inner-view-con-04 inner-view-con-04-01">
+                                                                                 <p class="chart-title">회당평균충전량</p>
+                                                                                 <div id="elecar_data_graph_06"></div>
                                                                             </div>
-                                                                            <div class="chart-view">
+                                                                            <div class="inner-view-con-04 inner-view-con-04-02">
                                                                                 <p class="chart-title">회당평균충전시간</p>
-                                                                                <div class="view">
-                                                                                  <div id="elecar_data_graph_07" style="width: 100%;"></div>
-                                                                                </div>
+                                                                                <div id="elecar_data_graph_07"></div>
                                                                             </div>
-                                                                        </div>    
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- inner-2depth-chart-view -->
+                                                                        </div>
+                                                                </div>    
+                                                            </div>   
                                                         </div>
                                                     </div>
+                                                    
                                                 </div>
-                                                 <div class="chart-view type02 m-b-10">
+                                                </div>
+                                                 <div class="chart-view type02 m-b-10" id="chart-view-map">
                                                     <p class="chart-title">입지선정분석 결과</p>
-                                                    <div class="view">
-                                                       33
+                                                    <div class="view map-view">
+                                                        <div id="map" style="width: 100%;"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -193,77 +188,8 @@
             </div>
         </div>
     </div>
-    <!-- <script>
-let xAxisData = ['철수','영희','민수','지수']; // x축 데이터 배열 생성
-        let seriesData = [70,80,100,30]; // 값 데이터 배열 생성
-
-        window.onload = function() { // 페이지 로드 시 실행
-
-            document.getElementById("drawLine").addEventListener('click', drawChart); // Line Chart 버튼 클릭 시 이벤트 정의 : drawChart 매서드 실행
-            document.getElementById("drawBar").addEventListener('click', drawChart); // Bar Chart 버튼 클릭 시 이벤트 정의 : drawChart 매서드 실행
-
-        }
-
-        function drawChart () { 
-
-		var myChart = echarts.init(document.getElementById('elecar_data_graph_01')); // echarts init 메소드로 id=chart인 DIV에 차트 초기화
-		
-		option = { // 차트를 그리는데 활용 할 다양한 옵션 정의
-                    xAxis: {
-                        type: 'category',
-                        data: xAxisData // 위에서 정의한 X축 데이터
-                    },
-                    yAxis: {
-                        type: 'value'
-                    },
-                    series: [
-                        {
-                        data: seriesData, // 위에서 정의한 값 데이터
-                        type: this.value // 버튼의 value 데이터 ('line' or 'bar')
-                        }
-                    ]
-                        };
-        
-		myChart.setOption(option); // 차트 디스플레이
-	}
-
-    </script> -->
-    <!-- <script>
-    //일 전기차 교통량
-var dom = document.getElementById('elecar_data_graph_01');
-var myChart = echarts.init(dom, null, {
-  renderer: 'canvas',
-  useDirtyRect: false
-});
-var app = {};
-
-var option;
-
-option = {
-  xAxis: {
-    type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-  },
-  yAxis: {
-    type: 'value'
-  },
-  series: [
-    {
-      data: [150, 230, 224, 218, 135, 147, 260],
-      type: 'line'
-    }
-  ]
-};
-
-
-if (option && typeof option === 'object') {
-  myChart.setOption(option);
-}
-
-window.addEventListener('resize', myChart.resize);
-
-    </script> -->
-    <script src="/asset/js/platform_data_analysis_ui.js"></script>
-    <script src="/asset/js/platform_data_analysis.js"></script>
+<script src="/asset/js/platform_data_analysis_ui.js"></script>
+<script src="/asset/js/platform_data_analysis.js"></script>
+<script src="/asset/js/platform_data_analysis_map.js"></script>
 </body>
 </html>
