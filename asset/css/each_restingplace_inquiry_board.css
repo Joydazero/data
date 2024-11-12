@@ -1,15 +1,32 @@
 @charset "utf-8";
 .chart-area .chart-view { margin-right: 10px;}
 .col-lg-12 {float: none; display: flex; flex: 1;}
-#each_restingplace_inquiry_board { box-sizing: border-box;padding: 10px 10px 10px 10px;background: #d9d9d9;}
-#each_restingplace_inquiry_board > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view{    display: flex;   flex-direction: column;    border-radius: 20px;}
+#each_restingplace_inquiry_board { box-sizing: border-box;padding: 10px 10px 10px 10px;}
+#each_restingplace_inquiry_board > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view{    display: flex;   flex-direction: column;    border-radius: 20px; height:auto; }
 #each_restingplace_inquiry_board > .wrapper .container .chart-title {display: flex;align-items: center;justify-content: center; font-size: 20px; font-weight: 700; line-height: 1; margin-top: 10px;}
-#each_restingplace_inquiry_board #topnav {border-radius: 10px; display: flex; align-items: center; justify-content: center;  width: 100%; background: rgba(255,255,255,0.34);    height: 60px;}
+#each_restingplace_inquiry_board #topnav {border-radius: 10px; display: flex; align-items: center; justify-content: center;  width: 100%; height: 60px;}
 #each_restingplace_inquiry_board .topbar-main {display: flex; align-items: center;justify-content: center;}
 #each_restingplace_inquiry_board .wrapper { height: calc(100% - 70px); margin-top: 10px;}
-#each_restingplace_inquiry_board .topbar-main .inner h1 { display: flex;  align-items: center;  justify-content: center;  font-weight: 700;  font-size: 32px;  letter-spacing: -0.05em;   color: #1c1c1c;}
-#each_restingplace_inquiry_board > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box { padding: 0 0 0 0;  flex: 1;  flex-direction: column;  display: flex;   height: auto; background:red;}
+#each_restingplace_inquiry_board .topbar-main .inner h1 { display: flex;  align-items: center;  justify-content: center;  font-weight: 700;  font-size: 32px;  letter-spacing: -0.05em;   color: #fff;}
+#each_restingplace_inquiry_board > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box { padding: 0 0 0 0;  flex: 1;  flex-direction: column;  display: flex;   height: auto; /* background:#fff;  */ background:inherit; }
 #each_restingplace_inquiry_board > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area{ display:flex; }
+#each_restingplace_inquiry_board > .filter-section { display:flex; align-items: center; justify-content: space-between; width: 100%; box-sizing: border-box; padding:10px 20px 10px 20px;  border-radius:10px; margin-top:10px; height:50px; box-sizing:border-box; }
+#each_restingplace_inquiry_board > .filter-section > form{ display:flex; justify-content: space-between; align-items: center;    width: 100%;}
+#each_restingplace_inquiry_board > .filter-section label{ color:var(--sub-color); font-size:18px; font-weight:600; margin-right:15px; margin-bottom: 0px;}
+#each_restingplace_inquiry_board > .filter-section .filter-part{ display:flex; align-items: center;}
+#each_restingplace_inquiry_board > .filter-section .filter-part select{ height:31px; border-radius:5px; min-width:270px ;}
+#each_restingplace_inquiry_board #restingplace_elecar_traffic_num_data{ width:100%;height:33.5vh;}
+#each_restingplace_inquiry_board #restingplace_elecar_charge_num_data{ width:100%;height:33.5vh;}
+#each_restingplace_inquiry_board #byperiod_elecar_charge_station_data{width:100%;height:33.5vh;}
+#each_restingplace_inquiry_board #bytime_elecar_charge_station_data{width:100%;height:33.5vh;}
 
-#each_restingplace_inquiry_board #restingplace_elecar_traffic_num_data{ width:100%;height:30vh;}
-#each_restingplace_inquiry_board #restingplace_elecar_charge_num_data{ width:100%;height:30vh;}
+/*mode-green*/
+.mode-green .chart-area .chart-view.type02,
+.mode-green #each_restingplace_inquiry_board > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view{  background:var(--white-color); }
+.mode-green #each_restingplace_inquiry_board {background:var(--main-color);}
+.mode-green #each_restingplace_inquiry_board #topnav {  background: var(--bg-color--type01); }
+.mode-green #each_restingplace_inquiry_board > .filter-section{  background:var(--sub-main-color);}
+.mode-green #each_restingplace_inquiry_board > .wrapper .container .chart-title{ color:var(--black-color); }
+.mode-green #each_restingplace_inquiry_board > .filter-section .filter-part select{ background:var(--select-color-type01); color:var(--font-color-type01); text-indent:10px ;}
+.mode-green #byperiod_elecar_charge_station_legend{ color:red; }
+.mode-green #each_restingplace_inquiry_board .chart-view text{fill:#333;  }

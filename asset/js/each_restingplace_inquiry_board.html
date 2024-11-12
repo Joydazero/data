@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/asset/css/bootstrap.css">
     <link rel="stylesheet" href="/asset/css/components.css">
     <link rel="stylesheet" href="/asset/css/core.css">
+    <link rel="stylesheet" href="/asset/css/common.css">
     <link rel="stylesheet" href="/asset/css/each_restingplace_inquiry_board.css">
     <!-- js -->
     <script src="/asset/js/jquery-1.9.1.min.js"></script>
@@ -21,7 +22,7 @@
     <script src="/asset/js/echarts.js"></script>   
     <!-- <script src="/asset/js/echarts.min.js"></script>    -->
 </head>
-<body>
+<body class="mode-green">
     <div class="all-wrapper" id="each_restingplace_inquiry_board">
         <header id="topnav">
             <div class="topbar-main">
@@ -35,7 +36,7 @@
              <div class="filter-part">
                 <label for="">본부</label>
                 <select name="" id="">
-                    <option value="">==선택==</option>
+                    <option value="">선택</option>
                     <option value="">서울경기본부</option>
                     <option value=""></option> 
                     <option value=""></option>
@@ -45,7 +46,7 @@
              <div class="filter-part">
                 <label for="">지사</label>
                 <select name="" id="">
-                    <option value="">==선택==</option>
+                    <option value="">선택</option>
                     <option value="">시흥지사</option>
                     <option value=""></option> 
                     <option value=""></option>
@@ -55,7 +56,7 @@
              <div class="filter-part">
                 <label for="">노선</label>
                 <select name="" id="">
-                    <option value="">==선택==</option>
+                    <option value="">선택</option>
                     <option value="">경부선</option>
                     <option value=""></option> 
                     <option value=""></option>
@@ -65,7 +66,7 @@
              <div class="filter-part">
                 <label for="">휴게소명</label>
                 <select name="" id="">
-                    <option value="">==선택==</option>
+                    <option value="">선택</option>
                     <option value="">시흥하늘휴게소</option>
                     <option value=""></option> 
                     <option value=""></option>
@@ -103,11 +104,13 @@
                                                 <div class="chart-view type02 m-b-10">
                                                     <p class="chart-title">기간별 충전소 이용현황</p>
                                                     <div class="view">
+                                                          <div id="byperiod_elecar_charge_station_data" ></div>
                                                     </div>
                                                 </div>
                                                 <div class="chart-view type02 m-b-10" >
                                                     <p class="chart-title">충전소 이용 시간대별 빈도</p>
                                                     <div class="view">
+                                                        <div id="bytime_elecar_charge_station_data" ></div>
                                                     </div>
                                                 </div>
                                             </div>

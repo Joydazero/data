@@ -13,17 +13,17 @@ let elecarDataTrafficCpdayPer = -5;
 option = {
   graphic: [
        {
-            type: 'text',
+            type: 'text',            
             left: '45%',
-            top: '3%',             
-            //rotation: Math.PI / 2,
+            top: '3%',                   
             style: {
                 text: `${elecarDataTrafficNum}대`,  
                 fontSize: 24,
                 fontWeight: 'bold',
-                fill: '#9cff00'  
-             }
-         },
+               // fill: '#9cff00'  
+             },           
+            
+         },         
        {
             type: 'rect',
             right: '10%',
@@ -36,7 +36,7 @@ option = {
                 text: `${elecarDataTrafficCpdayPer}%\n전일대비`,  
                 fontSize: 16,
                 fontWeight: 'bold',
-                fill: '#fff',
+                fill: '#404040',
                 stroke: '#999',
                 lineWidth: 1,
                 textFill: '#009cff',
@@ -88,6 +88,7 @@ if (option && typeof option === 'object') {
   myChart.setOption(option);
 }
 
+
 window.addEventListener('resize', myChart.resize);
 
 // 일 충전량
@@ -128,7 +129,7 @@ option2 = {
                 text: `${elecarDataChargeCpdayPer}%\n전일대비`,  
                 fontSize: 16,
                 fontWeight: 'bold',
-                fill: '#fff',
+                fill: '#404040',
                 stroke: '#999',
                 lineWidth: 1,
                 textFill: '#ff0000',
@@ -188,7 +189,7 @@ option3 = {
        {
             type: 'text',
             left: '45%',
-            top: '3%',             
+            top: '3%',    
             //rotation: Math.PI / 2,
             style: {
                 text: `${elecarDataChargeCountNum}건`,  
@@ -209,7 +210,7 @@ option3 = {
                 text: `${elecarDataChargeCountPer}%\n전일대비`,  
                 fontSize: 16,
                 fontWeight: 'bold',
-                fill: '#fff',
+                fill: '#404040',
                 stroke: '#999',
                 lineWidth: 1,
                  textFill: '#009cff',
@@ -714,10 +715,10 @@ window.addEventListener('resize', myChartRest08.resize);
 var dom4 = document.getElementById('elecar_data_graph_04');
 var myChart4 = echarts.init(dom4, null, {
   renderer: 'svg',
-  useDirtyRect: false
+  useDirtyRect: true
 });
 var app = {};
-
+const legendGp04Txt = getComputedStyle(document.body).getPropertyValue('--legendGp04Txt').trim();
 var option4;
 
 option4 = {
@@ -842,7 +843,7 @@ option4 = {
       ]
     ,
     legend: {
-
+    name : 'elect02',
     top: '50%%',
     show: true,
     data: [
@@ -853,7 +854,7 @@ option4 = {
           color: '#e5f5e0'
         },
         textStyle: {
-          color: '#fff'
+          color: legendGp04Txt 
         },
     },
       {
@@ -885,6 +886,7 @@ if (option4 && typeof option4 === 'object') {
   myChart4.setOption(option4);
 }
 
+document.legendGp04Txt.
 window.addEventListener('resize', myChart4.resize);
 
 //일평균 충전 횟수

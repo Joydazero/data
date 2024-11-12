@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+:root{
+    /* color */
+    --main-color: #092727;
+    --sub-main-color: #021e1e;
+    --sub-color: #2cedc0;
+    --bg-color--type01 :  rgb(2 11 11 / 27%); 
+    --white-color: #fff;
+    --black-color: #000;
+    --blue-color: #045fd4;
+    --red-color: #ff0000;
+    --grey-dark-color: #909090;
+    --grey-light-color: #e0e0e0;
+
+    --font-color-type01 : #494949;
+
+    /*select*/
+    --select-color-type01 : #e1e1e1;
+
+    /*table*/
+    --table-color-green : rgba(122,189,189,0.27);
+
+    /* Size */
+    --padding: 12px;
+
+    /* Font Size */
+    --font-large: 18px;
+    --font-medium: 14px;
+    --font-small: 12px;
+    --font-micro: 10px;
+
+     
+}
+body{ 
+ --legendGp04Txt: #3498db;  
+}
+
+body.mode-green{
+ --legendGp04Txt: #ff0000;  
+}
+
