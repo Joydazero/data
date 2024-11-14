@@ -8,7 +8,7 @@
 #each_restingplace_inquiry_board .topbar-main {display: flex; align-items: center;justify-content: center;}
 #each_restingplace_inquiry_board .wrapper { height: calc(100% - 70px); margin-top: 10px;}
 #each_restingplace_inquiry_board .topbar-main .inner h1 { display: flex;  align-items: center;  justify-content: center;  font-weight: 700;  font-size: 32px;  letter-spacing: -0.05em;   color: #fff;}
-#each_restingplace_inquiry_board > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box { padding: 0 0 0 0;  flex: 1;  flex-direction: column;  display: flex;   height: auto; /* background:#fff;  */ background:inherit; }
+#each_restingplace_inquiry_board > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box { padding: 0 0 0 0;  flex: 1;  flex-direction: column;  display: flex;   height: auto; /* background:#fff;  */ background:inherit; width:100%; border:0 none; }
 #each_restingplace_inquiry_board > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area{ display:flex; }
 #each_restingplace_inquiry_board > .filter-section { display:flex; align-items: center; justify-content: space-between; width: 100%; box-sizing: border-box; padding:10px 20px 10px 20px;  border-radius:10px; margin-top:10px; height:50px; box-sizing:border-box; }
 #each_restingplace_inquiry_board > .filter-section > form{ display:flex; justify-content: space-between; align-items: center;    width: 100%;}
@@ -19,7 +19,7 @@
 #each_restingplace_inquiry_board #restingplace_elecar_charge_num_data{ width:100%;height:33.5vh;}
 #each_restingplace_inquiry_board #byperiod_elecar_charge_station_data{width:100%;height:33.5vh;}
 #each_restingplace_inquiry_board #bytime_elecar_charge_station_data{width:100%;height:33.5vh;}
-
+#each_restingplace_inquiry_board .chart-area .chart-view.type02 .view{ padding-left:0;padding-right:0px;}
 /*mode-green*/
 .mode-green .chart-area .chart-view.type02,
 .mode-green #each_restingplace_inquiry_board > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area .chart-view{  background:var(--white-color); }
@@ -29,4 +29,31 @@
 .mode-green #each_restingplace_inquiry_board > .wrapper .container .chart-title{ color:var(--black-color); }
 .mode-green #each_restingplace_inquiry_board > .filter-section .filter-part select{ background:var(--select-color-type01); color:var(--font-color-type01); text-indent:10px ;}
 .mode-green #byperiod_elecar_charge_station_legend{ color:red; }
-.mode-green #each_restingplace_inquiry_board .chart-view text{fill:#333;  }
+
+ @media (max-width: 1560px) { 
+    body{ border:1px solid red;}
+    #each_restingplace_inquiry_board > .filter-section { height:auto; }
+    #each_restingplace_inquiry_board > .filter-section > form{ flex-wrap: wrap;}
+    #each_restingplace_inquiry_board > .filter-section > form .filter-part{ width: 48%; justify-content: space-between; padding:3px 0; }
+ }
+
+ @media (max-width: 1530px) { }
+ @media (max-width: 1400px) { 
+    #each_restingplace_inquiry_board > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box .chart-area{ display:block; }
+    #each_restingplace_inquiry_board #restingplace_elecar_traffic_num_data,
+    #each_restingplace_inquiry_board #restingplace_elecar_charge_num_data,
+    #each_restingplace_inquiry_board #byperiod_elecar_charge_station_data,
+    #each_restingplace_inquiry_board #bytime_elecar_charge_station_data{height:40vh;}
+    #each_restingplace_inquiry_board .topbar-main .inner h1{ font-size:24px; }
+ }
+ @media (max-width: 980px){
+    #each_restingplace_inquiry_board > .filter-section label{ font-size:16px; width:70px; }
+    #each_restingplace_inquiry_board > .filter-section > form .filter-part{ width:100%; }
+    .mode-green #each_restingplace_inquiry_board > .filter-section .filter-part select{ width: calc( 100% - 70px ) ; }
+    #each_restingplace_inquiry_board > .filter-section{padding: 10px 10px 10px 10px;}
+ 
+   
+
+ }
+ @media (max-width: 860px){
+ }

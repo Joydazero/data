@@ -5,9 +5,18 @@ var myChartRest01 = echarts.init(domRest01, null, {
   useDirtyRect: false
 });
 var app = {};
+const eachRestpTrafficGp01InColor = getComputedStyle(document.body).getPropertyValue('--restingplace_elecar_data_graph01_incolor').trim();
+const eachRestpTrafficGp02InColor = getComputedStyle(document.body).getPropertyValue('--restingplace_elecar_data_graph02_incolor').trim();
+const eachRestpTrafficGp03InColor01 = getComputedStyle(document.body).getPropertyValue('--restingplace_elecar_data_graph03_incolor01').trim();
+const eachRestpTrafficGp03InColor02 = getComputedStyle(document.body).getPropertyValue('--restingplace_elecar_data_graph03_incolor02').trim();
+const eachRestpTrafficGp03InColor03 = getComputedStyle(document.body).getPropertyValue('--restingplace_elecar_data_graph03_incolor03').trim();
+const eachRestpTrafficGp03InTxtColor01 = getComputedStyle(document.body).getPropertyValue('--restingplace_elecar_data_graph03_intxt_color01').trim();
+const eachRestpTrafficGp03InTxtColor02 = getComputedStyle(document.body).getPropertyValue('--restingplace_elecar_data_graph03_intxt_color02').trim();
+const eachRestpTrafficGp03InTxtColor03 = getComputedStyle(document.body).getPropertyValue('--restingplace_elecar_data_graph03_intxt_color03').trim();
+const eachRestpTrafficGp03LegendTxt = getComputedStyle(document.body).getPropertyValue('--restingplace_elecar_data_graph03_legend_txt').trim();
+const eachRestpTrafficGp01GridTop = getComputedStyle(document.body).getPropertyValue('--restingplace_elecar_data_graph01_grid_top').trim();
 
 var optionRest01;
-
 optionRest01 = {
   grid: {
     top: '10%',
@@ -22,15 +31,7 @@ optionRest01 = {
     },
     grid: {
       containLabel: true
-    },   
-    // splitLine: {
-    //         show: true,        
-    //         interval:1   // 0.01 간격으로 세로선 표시
-    // },
-    //  axisTick: {
-    //     alignWithLabel: true,
-    //    customValues: [0,0.05, 0.10]
-    // }
+    },  
   },
   yAxis: {
     type: 'value',   
@@ -53,11 +54,35 @@ optionRest01 = {
       data: [30, 27,27.5,23.8,24,24.6,28,29,27,26,31.9,31.7],
       type: 'line',
        itemStyle: {
-                color: '#d60000' 
+                color: eachRestpTrafficGp01InColor
       },
-      lineStyle: {  color: '#d60000' }
+      lineStyle: {  color: eachRestpTrafficGp01InColor }
     }
-  ]
+  ],
+     media: [
+        // {
+        //     query: { maxWidth: 600 },
+        //     option: {
+        //         grid: {
+        //             left: '5%',
+        //             right: '5%',
+        //             top: '5%',
+        //             bottom: '5%'
+        //         }
+        //     }
+        // },
+        {
+            query: { maxWidth: 980 },
+            option: {
+                grid: {
+                    left: '8%',
+                    right: '8%',
+                    top: '8%',
+                    bottom: '8%'
+                }
+            }
+        }
+    ]
 };
 
 if (optionRest01 && typeof optionRest01 === 'object') {
@@ -67,14 +92,12 @@ if (optionRest01 && typeof optionRest01 === 'object') {
 window.addEventListener('resize', myChartRest01.resize);
 
 
-// 월 전기차 충전량
+// // 월 전기차 충전량
 var domRest02 = document.getElementById('restingplace_elecar_charge_num_data');
 var myChartRest02 = echarts.init(domRest02, null, {
   renderer: 'svg',
   useDirtyRect: false
 });
-var app = {};
-
 var optionRest02;
 
 optionRest02 = {
@@ -122,9 +145,9 @@ optionRest02 = {
       data: [30, 27,27.5,23.8,24,24.6,28,29,27,26,31.9,31.7],
       type: 'line',
        itemStyle: {
-                color: '#c1f100' 
+                color: eachRestpTrafficGp02InColor
       },
-      lineStyle: {  color: '#c1f100' }
+      lineStyle: {  color: eachRestpTrafficGp02InColor  }
     }
   ]
 };
@@ -142,7 +165,6 @@ var myChartRest03 = echarts.init(domRest03, null, {
   renderer: 'svg',
   useDirtyRect: false
 });
-var app = {};
 
 var optionRest03;
 
@@ -172,7 +194,7 @@ optionRest03 = {
         itemWidth :16,
         itemHeight:16,
         textStyle: {
-            color: '#000' // 모든 레전드 텍스트 색상을 빨간색으로 변경
+            color: eachRestpTrafficGp03LegendTxt
         }
         
     },
@@ -184,10 +206,7 @@ optionRest03 = {
         nameGap: 30,
         axisLabel: {          
           rotate: 0, 
-        },
-         textStyle :{
-          color : '#fff'
-        },
+        }         
         
     },
     yAxis: {         
@@ -200,9 +219,9 @@ optionRest03 = {
             name: '명절',
             type: 'bar',
              data: [
-                { value: 218, label: { show: true, formatter: '9.87%', position: 'inside', rotate: -90, color: '#fff' } },
-                { value: 342, label: { show: true, formatter: '16.1%', position: 'inside', rotate: -90, color: '#fff' } },
-                { value: 450, label: { show: true, formatter: '18.0%', position: 'inside', rotate: -90, color: '#fff' } }
+                { value: 218, label: { show: true, formatter: '9.87%', position: 'inside', rotate: -90, color: eachRestpTrafficGp03InTxtColor01 } },
+                { value: 342, label: { show: true, formatter: '16.1%', position: 'inside', rotate: -90, color: eachRestpTrafficGp03InTxtColor01 } },
+                { value: 450, label: { show: true, formatter: '18.0%', position: 'inside', rotate: -90, color: eachRestpTrafficGp03InTxtColor01 } }
             ],
             label: {
                 show: true,
@@ -213,7 +232,7 @@ optionRest03 = {
                 rotate: -90
             },
             itemStyle: {
-                color: '#E57373'
+                color: eachRestpTrafficGp03InColor01
             },
              barGap: '5%',
              barMaxWidth : '20%'
@@ -222,9 +241,9 @@ optionRest03 = {
             name: '주말',
             type: 'bar',
            data: [
-                { value: 254, label: { show: true, formatter: '16.14%', position: 'inside', rotate: -90, color: '#fff' } },
-                { value: 398, label: { show: true, formatter: '18.37%', position: 'inside', rotate: -90, color: '#fff' } },
-                { value: 405, label: { show: true, formatter: '18.12%', position: 'inside', rotate: -90, color: '#fff' } }
+                { value: 254, label: { show: true, formatter: '16.14%', position: 'inside', rotate: -90, color: eachRestpTrafficGp03InTxtColor02 } },
+                { value: 398, label: { show: true, formatter: '18.37%', position: 'inside', rotate: -90, color: eachRestpTrafficGp03InTxtColor02 } },
+                { value: 405, label: { show: true, formatter: '18.12%', position: 'inside', rotate: -90, color: eachRestpTrafficGp03InTxtColor02  } }
             ],
             label: {
                 show: true,
@@ -235,7 +254,7 @@ optionRest03 = {
                 rotate: -90                
             },
             itemStyle: {
-                color: '#64B5F6'
+                color: eachRestpTrafficGp03InColor02
             },
              barGap: '5%',
              barMaxWidth : '20%'
@@ -244,9 +263,9 @@ optionRest03 = {
             name: '평일',
             type: 'bar',
             data: [
-                { value: 192, label: { show: true, formatter: '18.09%', position: 'inside', rotate: -90, color: '#fff' } },
-                { value: 314, label: { show: true, formatter: '16.19%', position: 'inside', rotate: -90, color: '#fff' } },
-                { value: 389, label: { show: true, formatter: '15.88%', position: 'inside', rotate: -90, color: '#fff' } }
+                { value: 192, label: { show: true, formatter: '18.09%', position: 'inside', rotate: -90, eachRestpTrafficGp03InTxtColor03 } },
+                { value: 314, label: { show: true, formatter: '16.19%', position: 'inside', rotate: -90, eachRestpTrafficGp03InTxtColor03 } },
+                { value: 389, label: { show: true, formatter: '15.88%', position: 'inside', rotate: -90, eachRestpTrafficGp03InTxtColor03  } }
             ],
             label: {
                 show: true,
@@ -257,7 +276,7 @@ optionRest03 = {
                 rotate: -90
             },
             itemStyle: {
-                color: '#1976D2'
+                color: eachRestpTrafficGp03InColor03
             },
              barGap: '5%',
              barMaxWidth : '20%'
@@ -279,7 +298,6 @@ var myChartRest04 = echarts.init(domRest04, null, {
   renderer: 'svg',
   useDirtyRect: false
 });
-var app = {};
 
 var optionRest04;
 
@@ -341,4 +359,23 @@ if (optionRest04 && typeof optionRest04 === 'object') {
   myChartRest04.setOption(optionRest04);
 }
 
-window.addEventListener('resize', myChartRest04.resize);
+//window.addEventListener('resize', myChartRest04.resize);
+
+
+
+// 창 크기 변경 시 차트 크기 자동 조정
+window.addEventListener('resize', function() {
+  myChartRest04.resize();
+});
+
+// resizeObserver를 이용해 부모 요소 크기 변화 감지
+const resizeObserver = new ResizeObserver(() => {
+  myChartRest04.resize();
+});
+resizeObserver.observe(domRest04);
+
+console.log(`Width: ${window.innerWidth}, Height: ${window.innerHeight}`);
+
+window.addEventListener('resize', () => {
+    console.log(`Width: ${window.innerWidth}, Height: ${window.innerHeight}`);
+});

@@ -30,13 +30,70 @@
     --font-small: 12px;
     --font-micro: 10px;
 
-     
+    /*Graph information Color*/
+    --top-data-num-bigtxt : #008000;
+    --top-change-label-red : #ff0000;
+    --top-change-label-blue : #008cff;    
+
 }
 body{ 
- --legendGp04Txt: #3498db;  
+    /*그래프 legend font color*/
+--elecar_data_graph_04_legend_txt01: #3498db;  
+--elecar_data_graph_04_legend_txt02: #3498db;  
+--elecar_data_graph_04_sidex_label_txt: #008000;  
+--elecar_data_graph_01_etc_toptxt01: var(--top-data-num-bigtxt);
+--elecar_data_graph_01_etc_topchange_label: var(--top-change-label-red);
+--elecar_data_graph_03_etc_topchange_label : var(--top-change-label-blue);
+--elecar_data_graph_bgcolor : rgb(255,158,0);
+--elecar_data_graph_04_bar_bgcolor01 : #a1d99b;
+--elecar_data_graph_04_bar_bgcolor02 : #e5f5e0;
+--elecar_data_graph_04_bar_bgcolor03 : #5470c6; 
+--elecar_data_map_legend_color01 : #ff0000; 
+--elecar_data_map_legend_color02 : #33ff33; 
+--elecar_data_map_legend_color03 : #3333ff; 
+--elecar_data_map_legend_color04 : #bbb; 
+--elecar_data_map_legend_txt_color : #000; 
+--elecar_data_map_legend_txt_color_selected : #ff0000; 
+--elecar_data_graph_intxt_color01 : #ff0000; 
+--restingplace_elecar_data_graph01_incolor : #ff0000; 
+--restingplace_elecar_data_graph02_incolor : #ff0000; 
+--restingplace_elecar_data_graph03_incolor01 : #E57373;
+--restingplace_elecar_data_graph03_incolor02 : #64B5F6;
+--restingplace_elecar_data_graph03_incolor03 : #1976D2;
+--restingplace_elecar_data_graph03_intxt_color : #ff0000;
+--restingplace_elecar_data_graph03_intxt_color01 : #000;
+--restingplace_elecar_data_graph03_intxt_color02 : #000;
+--restingplace_elecar_data_graph03_intxt_color03 : #fff;
+--restingplace_elecar_data_graph03_legend_txt : #fff;
+
 }
 
 body.mode-green{
- --legendGp04Txt: #ff0000;  
+    --elecar_data_graph_04_legend_txt01: #000;  
+    --elecar_data_graph_04_legend_txt02: #000;  
+    --elecar_data_graph_01_etc_toptxt01:var(--top-data-num-bigtxt);
+    --elecar_data_graph_01_etc_topchange_label: var(--top-change-label-red);
+    --elecar_data_graph_03_etc_topchange_label : var(--top-change-label-blue);
+    --elecar_data_graph_bgcolor : rgb(255,158,0);
+    --elecar_data_graph_04_bar_bgcolor01 : #a1d99b;
+    --elecar_data_graph_04_bar_bgcolor02 : #e5f5e0;
+    --elecar_data_graph_04_bar_bgcolor03 : #5470c6; 
+    --elecar_data_map_legend_color01 : #ff0000; 
+    --elecar_data_map_legend_color02 : #33ff33; 
+    --elecar_data_map_legend_color03 : #3333ff; 
+    --elecar_data_map_legend_color04 : #bbb; 
+    --elecar_data_map_legend_txt_color : #000; 
+    --elecar_data_map_legend_txt_color_selected : #ff0000; 
+    --elecar_data_graph_intxt_color01 : #000;  
+    --restingplace_elecar_data_graph01_incolor : #d60000;  
+    --restingplace_elecar_data_graph02_incolor : #c1f100;  
+    --restingplace_elecar_data_graph03_incolor01 : #E57373;
+    --restingplace_elecar_data_graph03_incolor02 : #64B5F6;
+    --restingplace_elecar_data_graph03_incolor03 : #1976D2;
+    --restingplace_elecar_data_graph03_intxt_color01 : #000;
+    --restingplace_elecar_data_graph03_intxt_color02 : #000;
+    --restingplace_elecar_data_graph03_intxt_color03 : #fff;
+    --restingplace_elecar_data_graph03_legend_txt : #000;
+
 }
 

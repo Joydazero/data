@@ -51,8 +51,8 @@
 #electriccar_chargingstation_analysis_result  .station_operation_table_wrap table th{ font-weight:700; text-align:center; padding:5px 5px; line-height:1.1;}
 #electriccar_chargingstation_analysis_result  .station_operation_table_wrap table td{ text-align:center;  padding:5px 10px; line-height:1.1;  }
 #electriccar_chargingstation_analysis_result .rest_area_tab{ display:flex; flex-wrap: wrap; gap:2px 12px; margin:0 20px;  justify-content: center;align-items: flex-start; margin-top:10px;}
-#electriccar_chargingstation_analysis_result .rest_area_tab > li span{ cursor:pointer;display: inline-flex;    background: rgba(0, 0, 0, 0.15);    padding: 1px 3px;    border-radius: 3px; }
-#electriccar_chargingstation_analysis_result .rest_area_tab > li.on span{ color:#fff;  background:rgba(0,14,89,0.9);}
+#electriccar_chargingstation_analysis_result .rest_area_tab > li span{ cursor:pointer;display: inline-flex;    background: rgba(0, 0, 0, 0.15);    padding: 3px 5px;    border-radius: 3px; color:#979797;}
+#electriccar_chargingstation_analysis_result .rest_area_tab > li.on span{ color:#fff;  background:var(--main-color);}
 #electriccar_chargingstation_analysis_result .tab_contents{visibility: hidden;  overflow:hidden; opacity:0; height:0; display:flex;  }
 #electriccar_chargingstation_analysis_result .tab_contents.active{visibility: visible;  overflow:visible; opacity:1;height:auto; }
 .chart-elecar-04{ flex:1 !important;}
@@ -74,9 +74,9 @@
 .mid-view{ flex:auto !important; }
 .txtwrap{ position:relative; }
 .station-operation-txt{ position:absolute;top:0%;left:50%;transform:translate(-50%,-50%);margin-top:8px; font-weight:700; color:green;  font-size:24px; }
-.station-operation-txt b{ font-weight:700; color:green; ;  font-size:24px; }
+.station-operation-txt b{ font-weight:700; color:var(--top-data-num-bigtxt);   font-size:24px; }
 .station-operation-per-txt{ position:absolute;top:-20px;right:20px; background:#404040; width:70px; height:40px; border:1px solid rgb(153, 153, 153); }
-.station-operation-per-txt p{color:#ff0000;   font-size: 16px;  font-family: sans-serif;  font-weight: bold; line-height:16px; margin:0 0 0 0; text-align:center;stroke: #000; stroke-width:0.005em; }
+.station-operation-per-txt p{color:var(--top-change-label-red);   font-size: 16px;  font-family: sans-serif;  font-weight: bold; line-height:16px; margin:0 0 0 0; text-align:center;stroke: #000; stroke-width:0.005em; }
 /* mode-green */
 .mode-green #electriccar_chargingstation_analysis_result{    background: var(--main-color);}
 .mode-green #electriccar_chargingstation_analysis_result > .wrapper .container .row .col-sm-12 .content .pane .row.m-b-20 .col-lg-12 .card-box{  background: inherit; }
@@ -86,10 +86,10 @@
 .mode-green #electriccar_chargingstation_analysis_result > .wrapper .container .chart-title{ color: var(--black-color); }
 .mode-green #electriccar_chargingstation_analysis_result  .chart-view text{ color:var(--font-color-type01); }
 .mode-green #electriccar_chargingstation_analysis_result  .chart-view text{ color:var(--font-color-type01); }
-.mode-green #electriccar_chargingstation_analysis_result #elecar_data_graph_01 text:nth-of-type(1),
+/* .mode-green #electriccar_chargingstation_analysis_result #elecar_data_graph_01 text:nth-of-type(1),
 .mode-green #electriccar_chargingstation_analysis_result #elecar_data_graph_02 text:nth-of-type(1),
 .mode-green #electriccar_chargingstation_analysis_result #elecar_data_graph_03 text:nth-of-type(1),
-.mode-green #electriccar_chargingstation_analysis_result #elecar_data_graph_04 text:nth-of-type(1){ fill:green; stroke:trasparent;}
+.mode-green #electriccar_chargingstation_analysis_result #elecar_data_graph_04 text:nth-of-type(1){ fill:green; stroke:trasparent;} */
 .mode-green #electriccar_chargingstation_analysis_result #elecar_data_graph_01 text,
 .mode-green #electriccar_chargingstation_analysis_result #elecar_data_graph_02 text,
 .mode-green #electriccar_chargingstation_analysis_result #elecar_data_graph_03 text,
@@ -97,8 +97,7 @@
 {stroke: #000; stroke-width:0.005em;}
 .mode-green #electriccar_chargingstation_analysis_result  .station_operation_table_wrap table th{ background:var(--table-color-green); color:var(--white-color);}
 .mode-green #electriccar_chargingstation_analysis_result  .station_operation_table_wrap table th, .mode-green #electriccar_chargingstation_analysis_result  .station_operation_table_wrap table td{ color:var(--black-color);}
-#small_circle{ fill:red !important; color:red !important; }
-.small_circle{ fill:red !important; color:red !important; }
+
 
  @media (max-width: 1600px) { 
     body{ border:1px solid yellow;}

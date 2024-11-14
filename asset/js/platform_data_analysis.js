@@ -10,6 +10,14 @@ var option;
 let elecarDataTrafficNum = 3779;
 let elecarDataTrafficCpdayPer = -5;
 
+const eleGp01TopTxt01 = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_01_etc_toptxt01').trim();
+const eleGp01TopChangeLabelTxt01 = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_01_etc_topchange_label').trim();
+const eleGpdataBgColor = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_bgcolor').trim();
+const eleGp04BgColor01 = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_04_bar_bgcolor01').trim(); // 연도별 전기차 바 배경색1
+const eleGp04BgColor02 = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_04_bar_bgcolor02').trim(); // 연도별 전기차 바 배경색2
+const eleGp04BgColor03 = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_04_bar_bgcolor03').trim(); // 잂여균,회당평균량,회당평균충전시간 배경색
+const eleGp01Intxtcolor01  = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_intxt_color01').trim(); // 일전기차교통량 그래프 in text
+
 option = {
   graphic: [
        {
@@ -20,7 +28,7 @@ option = {
                 text: `${elecarDataTrafficNum}대`,  
                 fontSize: 24,
                 fontWeight: 'bold',
-               // fill: '#9cff00'  
+                fill: eleGp01TopTxt01
              },           
             
          },         
@@ -39,7 +47,7 @@ option = {
                 fill: '#404040',
                 stroke: '#999',
                 lineWidth: 1,
-                textFill: '#009cff',
+                textFill: eleGp01TopChangeLabelTxt01,
                 textAlign: 'center',   
                 //textVerticalAlign: 'middle'    
              }
@@ -73,13 +81,19 @@ option = {
     {
       data: [2500, 3100, 4000, 3779],
       type: 'line',
-      label: {  show: true  },
+      label: {  
+        show: true,
+        color : eleGp01Intxtcolor01
+      },
       symbol: 'circle', // 심볼 모양
       symbolSize: 8, 
       itemStyle: {
-                color: '#ff9c00' 
+                color:  eleGpdataBgColor
       },
-      lineStyle: {  color: '#ff9c00' }      
+      lineStyle: {  color: eleGpdataBgColor }  ,
+      textStyle :{
+        color : '#ff0000'
+      }    
     }
   ]
 };
@@ -102,6 +116,8 @@ var app = {};
 var option2;
 let elecarDataChargeNum = 300;
 let elecarDataChargeCpdayPer = 20;
+const eleGp02TopTxt01 = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_01_etc_toptxt01').trim();
+const eleGp02TopChangeLabelTxt01 = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_01_etc_topchange_label').trim();
 
 option2 = {
   graphic: [
@@ -114,7 +130,7 @@ option2 = {
                 text: `${elecarDataChargeNum}Wh`,  
                 fontSize: 24,
                 fontWeight: 'bold',
-                fill: '#9cff00'  
+                fill: eleGp02TopTxt01  
              }
          },
        {
@@ -132,7 +148,7 @@ option2 = {
                 fill: '#404040',
                 stroke: '#999',
                 lineWidth: 1,
-                textFill: '#ff0000',
+                textFill: eleGp02TopChangeLabelTxt01,
                 textAlign: 'center',   
                 //textVerticalAlign: 'middle'    
              }
@@ -158,10 +174,13 @@ option2 = {
     {
       data: [300, 200, 250, 300],
       type: 'bar',
-      label: {  show: true  },
+      label: {  
+        show: true,
+        color : eleGp01Intxtcolor01
+      },
       barWidth : "40%",
       itemStyle: {
-                color: '#ff9c00' 
+                color: eleGp01Intxtcolor01
       }
     }
   ]
@@ -183,6 +202,9 @@ var app = {};
 var option3;
 let elecarDataChargeCountNum = 4800;
 let elecarDataChargeCountPer = -4;
+const eleGp02TopTxt03 = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_01_etc_toptxt01').trim();
+const eleGp02TopChangeLabelTxt03 = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_03_etc_topchange_label').trim();
+
 
 option3 = {
   graphic: [
@@ -195,7 +217,7 @@ option3 = {
                 text: `${elecarDataChargeCountNum}건`,  
                 fontSize: 24,
                 fontWeight: 'bold',
-                fill: '#9cff00'  
+                fill: eleGp02TopTxt03  
              }
          },
        {
@@ -213,7 +235,7 @@ option3 = {
                 fill: '#404040',
                 stroke: '#999',
                 lineWidth: 1,
-                 textFill: '#009cff',
+                 textFill: eleGp02TopChangeLabelTxt03,
                 textAlign: 'center',   
                 //textVerticalAlign: 'middle'    
              }
@@ -242,13 +264,16 @@ option3 = {
     {
       data: [4820, 4900, 5000, 4800],
       type: 'line',
-      label: {  show: true  },
+      label: { 
+         show: true,
+         color : eleGp01Intxtcolor01
+      },
       symbol: 'circle', // 심볼 모양
       symbolSize: 8, 
       itemStyle: {
-                color: '#ff9c00' 
+                color: eleGpdataBgColor 
       },
-      lineStyle: {  color: '#ff9c00' }  
+      lineStyle: {  color: eleGpdataBgColor }  
     }
   ]
 };
@@ -718,7 +743,9 @@ var myChart4 = echarts.init(dom4, null, {
   useDirtyRect: true
 });
 var app = {};
-const legendGp04Txt = getComputedStyle(document.body).getPropertyValue('--legendGp04Txt').trim();
+const eleGp04Txt01 = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_04_legend_txt01').trim();
+const eleGp04Txt02 = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_04_legend_txt02').trim();
+const eleGp04SideYtxt = getComputedStyle(document.body).getPropertyValue('--elecar_data_graph_04_sidex_label_txt').trim();
 var option4;
 
 option4 = {
@@ -750,6 +777,7 @@ option4 = {
       label: {
             show: true,  // 데이터 레이블을 표시
             position: 'top',
+            color : eleGp01Intxtcolor01,
             formatter: function (params) {
                 return params.value + '%';
             }
@@ -765,7 +793,7 @@ option4 = {
       //   color: 'rgba(180, 180, 180, 0.2)'
       // }
        itemStyle: {
-                color: '#a1d99b'
+                color: eleGp04BgColor01
         
       },
     },
@@ -784,13 +812,13 @@ option4 = {
       label: {
             show: true,  // 데이터 레이블을 표시
             position: 'top',
+            color : eleGp01Intxtcolor01,
             formatter: function (params) {
                 return (params.value / 1000);
             }
         },
         itemStyle: {
-                color: '#e5f5e0'
-        
+                color: eleGp04BgColor02
       },
       
     },    
@@ -826,7 +854,7 @@ option4 = {
                 text: '전체차량등록수',  // 제목 텍스트
                 fontSize: 13,
                 fontWeight: 'bold',
-                fill: '#fff'  // 텍스트 색상 설정
+                fill: eleGp04SideYtxt  // 텍스트 색상 설정
              }
          },
        {
@@ -851,20 +879,20 @@ option4 = {
         name: '야외'
         ,
         itemStyle: {
-          color: '#e5f5e0'
+          color: eleGp04BgColor02
         },
         textStyle: {
-          color: legendGp04Txt 
+          color: eleGp04Txt01 
         },
     },
       {
       name: '전기'
       ,
       itemStyle: {
-        color: '#a1d99b'
+        color: eleGp04BgColor01
       },
       textStyle: {
-        color: '#fff'
+        color: eleGp04Txt02
       }
     }
   
@@ -886,7 +914,6 @@ if (option4 && typeof option4 === 'object') {
   myChart4.setOption(option4);
 }
 
-document.legendGp04Txt.
 window.addEventListener('resize', myChart4.resize);
 
 //일평균 충전 횟수
@@ -917,7 +944,10 @@ option5 = {
   series: [
     {
       data: [2500, 4800, 4900],
-      type: 'bar'
+      type: 'bar',
+      itemStyle : {
+        color : eleGp04BgColor03
+      }
     }
   ]
 };
@@ -968,7 +998,10 @@ option6 = {
   series: [
     {
       data: [17.5, 19.3, 21],
-      type: 'line'
+      type: 'line',     
+      itemStyle :{
+        color : eleGp04BgColor03
+      } 
     }
   ]
 };
@@ -1020,7 +1053,10 @@ option7 = {
   series: [
     {
       data: [28.4, 28.3, 26.9],
-      type: 'line'
+      type: 'line',
+      itemStyle : {
+        color : eleGp04BgColor03
+      }
     }
   ]
 };

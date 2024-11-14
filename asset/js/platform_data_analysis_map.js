@@ -2,7 +2,13 @@ var ROOT_PATH = "/asset/js/";
 	var chartDom = document.getElementById("map");
 	var myChart0 = echarts.init(chartDom);
 	var option0;
-	
+    const eleGpMapLegendColor01 = getComputedStyle(document.body).getPropertyValue('--elecar_data_map_legend_color01').trim(); // 입지선정분석 결과 범례 배경색1
+    const eleGpMapLegendColor02 = getComputedStyle(document.body).getPropertyValue('--elecar_data_map_legend_color02').trim(); // 입지선정분석 결과 범례 배경색2
+    const eleGpMapLegendColor03 = getComputedStyle(document.body).getPropertyValue('--elecar_data_map_legend_color03').trim(); // 입지선정분석 결과 범례 배경색3
+    const eleGpMapLegendColor04 = getComputedStyle(document.body).getPropertyValue('--elecar_data_map_legend_color04').trim(); // 입지선정분석 결과 범례 배경색4
+    const eleGpMapLegendTxtcolor = getComputedStyle(document.body).getPropertyValue('--elecar_data_map_legend_txt_color').trim(); // 입지선정분석 결과 범례 배경색4
+    const eleGpMapLegendTxtcolorSelected = getComputedStyle(document.body).getPropertyValue('--elecar_data_map_legend_txt_color_selected').trim(); // 입지선정분석 결과 범례 배경색4
+    
 	$.getJSON(ROOT_PATH + "/22.json", function (geoJson) {
 		echarts.registerMap("KOREA", geoJson);
 		 myChart0.setOption(option0 = {
@@ -16,10 +22,10 @@ var ROOT_PATH = "/asset/js/";
                 left: 'right',
                 data: ['1순위 노선', '2순위 노선', '3순위 노선', '그 외'],
                 textStyle: {
-                    color: '#fff', // 텍스트 색상
+                    color: eleGpMapLegendTxtcolorSelected, // 텍스트 색상
                     fontSize: 14 // 텍스트 크기
                 },
-                inactiveColor: '#000', 
+                inactiveColor: eleGpMapLegendTxtcolor , 
                 selectedMode: 'single', // 다중 선택 가능
                 itemWidth: 40, // 구별점 너비
                 itemHeight: 14, // 구별점 높이
@@ -65,7 +71,7 @@ var ROOT_PATH = "/asset/js/";
                         color: '#333'
                     },
                     lineStyle: {
-                        color: '#ff3333',
+                        color: eleGpMapLegendColor01 ,
                         width: 7,
                         cap:'round',
                         join: 'round',
@@ -85,7 +91,7 @@ var ROOT_PATH = "/asset/js/";
                     //     color: '#fff'
                     // },
                     lineStyle: {
-                        color: '#33ff33',
+                        color: eleGpMapLegendColor02,
                         width: 7,
                         cap:'round'
                     },
@@ -102,7 +108,7 @@ var ROOT_PATH = "/asset/js/";
                     //     color: '#fff'
                     // },7
                     lineStyle: {
-                        color: '#3333ff',
+                        color: eleGpMapLegendColor03,
                         width: 7,
                         cap:'round'
                     },
@@ -119,7 +125,7 @@ var ROOT_PATH = "/asset/js/";
                     //     color: '#fff'
                     // },
                     lineStyle: {
-                        color: '#bbbbbb',
+                        color: eleGpMapLegendColor04,
                         width: 7,
                         type: 'dashed',
                         cap:'round'
