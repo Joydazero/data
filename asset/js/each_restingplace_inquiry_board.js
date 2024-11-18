@@ -59,7 +59,7 @@ optionRest01 = {
       lineStyle: {  color: eachRestpTrafficGp01InColor }
     }
   ],
-     media: [
+  media: [
         // {
         //     query: { maxWidth: 600 },
         //     option: {
@@ -75,21 +75,39 @@ optionRest01 = {
             query: { maxWidth: 980 },
             option: {
                 grid: {
-                    left: '8%',
-                    right: '8%',
+                    left: '10%',
+                    right: '5%',
                     top: '8%',
                     bottom: '8%'
-                }
-            }
+                },
+              },
+            
         }
     ]
 };
 
-if (optionRest01 && typeof optionRest01 === 'object') {
-  myChartRest01.setOption(optionRest01);
+function updateChart01() {
+    var width = window.innerWidth;
+    if ( width <= 420) {
+        optionRest01.xAxis.axisLabel.fontSize = 9;
+        optionRest01.yAxis.axisLabel.fontSize = 9;
+      }
+    else if (width <= 980) {
+        optionRest01.xAxis.axisLabel.fontSize = 11;
+        optionRest01.yAxis.axisLabel.fontSize = 11;
+    } else {
+        
+       optionRest01.xAxis.axisLabel.fontSize = 12;
+       optionRest01.yAxis.axisLabel.fontSize = 12;
+    }
+    myChartRest01.setOption(optionRest01);
 }
 
-window.addEventListener('resize', myChartRest01.resize);
+updateChart01();
+window.addEventListener('resize', function() {
+    updateChart01();
+    myChartRest01.resize();
+});
 
 
 // // 월 전기차 충전량
@@ -149,16 +167,44 @@ optionRest02 = {
       },
       lineStyle: {  color: eachRestpTrafficGp02InColor  }
     }
+  ],
+  media: [{
+            query: { maxWidth: 980 },
+            option: {
+                grid: {
+                    left: '10%',
+                    right: '5%',
+                    top: '8%',
+                    bottom: '8%'
+                }
+            }
+        }
   ]
 };
 
+function updateChart02() {
+    var width = window.innerWidth;
 
-if ( optionRest02 && typeof optionRest02 === 'object') {
-  myChartRest02.setOption(optionRest02);
+    if ( width <= 420) {
+        optionRest02.xAxis.axisLabel.fontSize = 9;
+        optionRest02.yAxis.axisLabel.fontSize = 9;
+      }
+    else if (width <= 980) {
+        optionRest02.xAxis.axisLabel.fontSize = 11;
+        optionRest02.yAxis.axisLabel.fontSize = 11;
+    } else {
+        
+       optionRest02.xAxis.axisLabel.fontSize = 12;
+       optionRest02.yAxis.axisLabel.fontSize = 12;
+    }
+    myChartRest02.setOption(optionRest02);
 }
 
-window.addEventListener('resize', myChartRest02.resize);
-
+updateChart02();
+window.addEventListener('resize', function() {
+    updateChart02();
+    myChartRest02.resize();
+});
 
 var domRest03 = document.getElementById('byperiod_elecar_charge_station_data');
 var myChartRest03 = echarts.init(domRest03, null, {
@@ -201,16 +247,20 @@ optionRest03 = {
     xAxis: {
         type: 'category',
         data: ['2021', '2022', '2023'],
-        name: '연도',
+        name: '연도',        
         nameLocation: 'center', 
         nameGap: 30,
         axisLabel: {          
           rotate: 0, 
+          fontSize: 12
         }         
         
     },
     yAxis: {         
         type: 'value',
+         axisLabel: { 
+          fontSize: 12
+        }      
         //name: '이용 횟수',
         // Y축 값을 100, 200 등 절대값으로 표시하기 위해 formatter 설정 생략
     },
@@ -281,16 +331,42 @@ optionRest03 = {
              barGap: '5%',
              barMaxWidth : '20%'
         }
+    ],
+    media: [{
+            query: { maxWidth: 980 },
+            option: {
+                grid: {
+                    left: '10%',
+                    right: '5%',
+                    top: '8%',
+                    bottom: '8%'
+                }
+            }
+        }
     ]
 };
 
-
-if ( optionRest03 && typeof optionRest03 === 'object') {
-  myChartRest03.setOption(optionRest03);
+function updateChart03() {
+    var width = window.innerWidth;
+    if ( width <= 420) {
+        optionRest03.xAxis.axisLabel.fontSize = 9;
+        optionRest03.yAxis.axisLabel.fontSize = 9;
+        optionRest03.legend.orient = 'horizontal';
+      }
+    else if (width <= 980) {
+        optionRest03.xAxis.axisLabel.fontSize = 11;
+    } else {
+        
+       optionRest03.xAxis.axisLabel.fontSize = 12;
+       optionRest03.legend.orient = 'vertical';
+    }
+    myChartRest03.setOption(optionRest03);
 }
-
-window.addEventListener('resize', myChartRest03.resize);
-
+updateChart03();
+window.addEventListener('resize', function() {
+    updateChart03();
+    myChartRest03.resize();
+});
 
 
 var domRest04 = document.getElementById('bytime_elecar_charge_station_data');
@@ -307,10 +383,11 @@ optionRest04 = {
         axisPointer: { type: 'shadow' }
   },
   grid:{
-    top:'8%'
+    top:'8%',
+    bottom:'20%'
   },
   xAxis: {
-    name : '시간대',
+      name : '시간대',
      nameLocation: 'center', 
      nameGap: 30,
      axisLabel: {          
@@ -353,29 +430,43 @@ optionRest04 = {
       }
     }
   ]
+ 
 };
 
-if (optionRest04 && typeof optionRest04 === 'object') {
-  myChartRest04.setOption(optionRest04);
+// 옵션 적용 함수 정의
+function updateChart04() {
+    var width = window.innerWidth;
+    if (width <= 420) {
+        optionRest04.xAxis.name = '';
+        optionRest04.yAxis.name = '';
+        optionRest04.xAxis.axisLabel.fontSize = 9;
+        optionRest04.yAxis.axisLabel.fontSize = 9;
+        optionRest04.grid.bottom = '10%';
+      }
+    else if(width <= 980) {
+        // 980px 이하일 때 xAxis.name 숨기기
+        optionRest04.xAxis.name = '';
+        optionRest04.yAxis.name = '';
+        optionRest04.grid.bottom = '10%';
+    }   
+    else {
+        // 980px 이상일 때 xAxis.name 다시 표시
+        optionRest04.xAxis.name = '시간대';
+        optionRest04.yAxis.name = '빈도';
+        optionRest04.grid.bottom = '15%';
+    }
+    myChartRest04.setOption(optionRest04);
 }
 
-//window.addEventListener('resize', myChartRest04.resize);
-
-
-
-// 창 크기 변경 시 차트 크기 자동 조정
+// 초기 옵션 적용
+updateChart04();
+// 창 크기 조정 시 이벤트 핸들러
 window.addEventListener('resize', function() {
-  myChartRest04.resize();
+    updateChart04();
+    myChartRest04.resize();
 });
-
-// resizeObserver를 이용해 부모 요소 크기 변화 감지
-const resizeObserver = new ResizeObserver(() => {
-  myChartRest04.resize();
-});
-resizeObserver.observe(domRest04);
 
 console.log(`Width: ${window.innerWidth}, Height: ${window.innerHeight}`);
-
 window.addEventListener('resize', () => {
     console.log(`Width: ${window.innerWidth}, Height: ${window.innerHeight}`);
 });

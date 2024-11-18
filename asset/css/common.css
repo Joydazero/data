@@ -12,7 +12,6 @@
     --red-color: #ff0000;
     --grey-dark-color: #909090;
     --grey-light-color: #e0e0e0;
-
     --font-color-type01 : #494949;
 
     /*select*/
@@ -65,9 +64,7 @@ body{
 --restingplace_elecar_data_graph03_intxt_color02 : #000;
 --restingplace_elecar_data_graph03_intxt_color03 : #fff;
 --restingplace_elecar_data_graph03_legend_txt : #fff;
-
 }
-
 body.mode-green{
     --elecar_data_graph_04_legend_txt01: #000;  
     --elecar_data_graph_04_legend_txt02: #000;  
@@ -90,10 +87,15 @@ body.mode-green{
     --restingplace_elecar_data_graph03_incolor01 : #E57373;
     --restingplace_elecar_data_graph03_incolor02 : #64B5F6;
     --restingplace_elecar_data_graph03_incolor03 : #1976D2;
-    --restingplace_elecar_data_graph03_intxt_color01 : #000;
+    --restingplace_elecar_data_graph03_intxt_color01 : #000000;
     --restingplace_elecar_data_graph03_intxt_color02 : #000;
     --restingplace_elecar_data_graph03_intxt_color03 : #fff;
     --restingplace_elecar_data_graph03_legend_txt : #000;
 
 }
-
+body.mode-ano{
+    --restingplace_elecar_data_graph02_incolor : #a763ff;  
+    --restingplace_elecar_data_graph03_incolor01 : #facd6c;
+    --restingplace_elecar_data_graph03_incolor02 : #58c08c;
+    --restingplace_elecar_data_graph03_incolor03 : #2b95ff;
+}

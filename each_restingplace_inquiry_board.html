@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>개별 휴게소 조회 페이지</title>
+  
     <!-- css -->
     <link rel="stylesheet" href="/asset/css/reset.css">
     <link rel="stylesheet" href="/asset/css/bootstrap.css">
@@ -21,6 +22,8 @@
     <script src="/asset/js/jquery.ui.js"></script>   
     <script src="/asset/js/echarts.js"></script>   
     <!-- <script src="/asset/js/echarts.min.js"></script>    -->
+       <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body class="mode-green">
     <div class="all-wrapper" id="each_restingplace_inquiry_board">
@@ -35,7 +38,7 @@
             <form action="">
              <div class="filter-part">
                 <label for="">본부</label>
-                <select name="" id="">
+                <select name="" id="" class="basic-single">
                     <option value="">선택</option>
                     <option value="">서울경기본부</option>
                     <option value=""></option> 
@@ -45,7 +48,7 @@
              </div>
              <div class="filter-part">
                 <label for="">지사</label>
-                <select name="" id="">
+                <select name="" id="" class="basic-single">
                     <option value="">선택</option>
                     <option value="">시흥지사</option>
                     <option value=""></option> 
@@ -55,7 +58,7 @@
              </div>
              <div class="filter-part">
                 <label for="">노선</label>
-                <select name="" id="">
+                <select name="" id="" class="basic-single">
                     <option value="">선택</option>
                     <option value="">경부선</option>
                     <option value=""></option> 
@@ -65,7 +68,7 @@
              </div>
              <div class="filter-part">
                 <label for="">휴게소명</label>
-                <select name="" id="">
+                <select name="" id="" class="basic-single">
                     <option value="">선택</option>
                     <option value="">시흥하늘휴게소</option>
                     <option value=""></option> 
@@ -126,5 +129,15 @@
         </div>
     </div>
 <script src="/asset/js/each_restingplace_inquiry_board.js"></script>
+<script>
+    $(document).ready(function() {
+    if ($('body').hasClass('mode-ano')) {
+        // 'mode-ano' 클래스가 있을 때 실행할 코드
+       $('.basic-single').select2({
+         minimumResultsForSearch: Infinity
+       });        
+    }
+});
+</script>
 </body>
 </html>
