@@ -28,6 +28,7 @@
     --font-medium: 14px;
     --font-small: 12px;
     --font-micro: 10px;
+    --font-tab : 16px;
 
     /*Graph information Color*/
     --top-data-num-bigtxt : #008000;
@@ -64,6 +65,19 @@ body{
 --restingplace_elecar_data_graph03_intxt_color02 : #000;
 --restingplace_elecar_data_graph03_intxt_color03 : #fff;
 --restingplace_elecar_data_graph03_legend_txt : #fff;
+--nav-bar-bg-color:#e4f4fd;
+--nav-bar-button-color:rgb(180 213 255 / 69%);
+--nav-bar-button-color-02:#0971ce;
+--nav-bar-font-color: #0442b7;
+--nav-main-font-size:14px;
+--nav-main-button-height:3.3vh;
+--nav-main-button-height-filtering:4vh;
+--nav-bar-width :350px;
+--dsh-tab-bgcolor : rgb(219 235 255);
+--sra01_data_graph01_linecolor_01 : #0971ce;
+--sra01_data_graph01_linecolor_02 : #ff3c00;
+--sra01_data_graph01_bgcolor: rgb(229 246 247);
+
 }
 body.mode-green{
     --elecar_data_graph_04_legend_txt01: #000;  

@@ -362,10 +362,9 @@ optionRest02 = {
   },
   xAxis: {
     type: 'value',
-   axisLabel : {
-    show:false
-   }
-   
+    axisLabel : {
+      show:false
+    }
   },
   yAxis: {
      type: 'category',

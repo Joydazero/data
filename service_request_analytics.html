@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>민원 분석 대시보드</title>
+    <!-- css -->
+    <link rel="stylesheet" href="/asset/css/reset.css">
+    <link rel="stylesheet" href="/asset/css/bootstrap.css">
+    <link rel="stylesheet" href="/asset/css/components.css">
+    <link rel="stylesheet" href="/asset/css/core.css">
+    <link rel="stylesheet" href="/asset/css/common.css">
+    <link rel="stylesheet" href="/asset/css/service_request_analytics.css">
+    <!-- js -->
+    <script src="/asset/js/jquery-1.9.1.min.js"></script>
+    <script src="/asset/js/modernizr.min.js"></script>
+    <script src="/asset/js/bootstrap.min.js"></script>
+    <script src="/asset/js/jquery.app.js"></script>
+    <script src="/asset/js/jquery.cookie.js"></script>
+    <script src="/asset/js/jquery.core.js"></script>
+    <script src="/asset/js/jquery.ui.js"></script>   
+    <script src="/asset/js/echarts.js"></script>   
+    <!-- <script src="/asset/js/echarts.min.js"></script>    -->
+</head>
+<body >
+    <div class="all-wrapper" id="service_request_analytics">
+        <div class="wrapper">
+            <nav id="menu-bar" class="open">
+                <div class="menu-bar-inner">
+                    <h2 class="in-title"><p>민원 분석 대시보드</p></h2>
+                    <div class="menu-item menu-route">
+                        <h3 class="in-item-title"><p>민원 분류</p></h3>
+                        <div class="in-item-content">
+                            <ul class="route-choice">
+                                <li><button type="button">콜 센터</button></li>
+                                <li><button type="button">전자·서면</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- menu-item -->
+                     <div class="menu-item menu-classification">
+                        <h3 class="in-item-title"><p>민원 분류</p></h3>
+                        <div class="in-item-content">
+                            <div class="item-classification">
+                            <ul class="classification-list">
+                                <li>
+                                <select name="" id="">
+                                    <option value="">대분류</option>
+                                    <option value="">대분류</option>
+                                    <option value="">대분류</option>
+                                    <option value="">대분류</option>
+                                    <option value="">대분류</option>
+                                </select>
+                                </li>
+                                <li>
+                                <select name="" id="">
+                                    <option value="">중분류</option>
+                                    <option value="">중분류</option>
+                                    <option value="">중분류</option>
+                                    <option value="">중분류</option>
+                                    <option value="">중분류</option>
+                                </select>
+                                </li>
+                                <li>
+                                <select name="" id="">
+                                    <option value="">소분류</option>
+                                    <option value="">소분류</option>
+                                    <option value="">소분류</option>
+                                    <option value="">소분류</option>
+                                    <option value="">소분류</option>
+                                    <option value="">소분류</option>
+                                </select>
+                                </li>
+                            </ul>
+                            <div class="classification-detail">
+                                <ul class="detail-info-list">
+                                    <li><button type="button">영업</button></li>
+                                    <li><button type="button">교통</button></li>
+                                    <li><button type="button">유지보수</button></li>
+                                    <li><button type="button">손해배상</button></li>
+                                    <li><button type="button">용지</button></li>
+                                    <li><button type="button">공사</button></li>
+                                    <li><button type="button">기타</button></li>
+                                </ul>
+                                <div class="detail-info-control">
+                                    <button type="button" id="classification-all-btn">전체선택</button>
+                                    <button type="button" id="nav-ok-btn">확인</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- menu-item -->
+                     <div class="menu-item">
+                        <h3 class="in-item-title"><p>기간 필터</p></h3>
+                        <div class="in-item-content">
+                            
+                        </div>
+                    </div>
+                    <!-- menu-item -->
+                     <div class="menu-item">
+                        <h3 class="in-item-title item-keyword"><p>포함 키워드</p></h3>
+                        <div class="in-item-content item-keyword">
+                            <div class="item-keyword-box including">
+                                1111
+                            </div>
+                        </div>
+                    </div>
+                    <!-- menu-item -->
+                     <div class="menu-item">
+                        <h3 class="in-item-title item-keyword"><p>제외 키워드</p></h3>
+                        <div class="in-item-content item-keyword">
+                            <div class="item-keyword-box exception">
+                                1111
+                            </div>
+                        </div>
+                    </div>
+                    <!-- menu-item -->
+                     <div class="menu-button-wrap">
+                       <button type="button" class="menu-filter-btn">필터링</button>
+                     </div>
+                </div>
+                <button id="nav-bar-control-btn" type="button">메뉴바 버튼</button>
+            </nav>
+            <div class="container">
+                <div class="contents">
+                    <div class="tab-menu">
+                        <ul>
+                            <li><a href=""><span>월간 현황</span></a></li>
+                            <li><a href=""><span>시계열 분석</span></a></li>
+                            <li><a href=""><span>키워드 분석</span></a></li>
+                            <li><a href=""><span>유형별 분석</span></a></li>
+                        </ul>
+                    </div>
+                    <section class="main-con-sec">
+                        <div id="sra_monthly_development" class="data_visualization_con">
+                            <p class="data_visualization_tit">월간 추이</p>
+                            <div id="sra_monthly_development_grp"></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="/asset/js/service_request_analytics.js"></script>
+</body>
+</html>

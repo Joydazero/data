@@ -15,7 +15,6 @@ $(function() {
 
 
   // 이전에 선택된 탭이 있는지 검사해서 몇번째 인지 알아 옮
-
   var before = tabs.filter('.on').index();
 
 
