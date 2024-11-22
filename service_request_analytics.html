@@ -132,12 +132,85 @@
                             <li><a href=""><span>유형별 분석</span></a></li>
                         </ul>
                     </div>
-                    <section class="main-con-sec">
+                    <section class="main-con-sec tab-contents">
                         <div id="sra_monthly_development" class="data_visualization_con">
                             <p class="data_visualization_tit">월간 추이</p>
                             <div id="sra_monthly_development_grp"></div>
                         </div>
+                        <div id="sra_classification_route_data" class="data_visualization_table_con">
+                            <table>
+                                <caption>민원 분류 데이터 테이블</caption>
+                                <colgroup>
+                                    <col class="col-tit">
+                                    <col class="col-con">
+                                    <col class="col-con">
+                                    <col class="col-con">
+                                    <col class="col-con">
+                                    <col class="col-con">
+                                    <col class="col-con">
+                                    <col class="col-con">
+                                    <col class="col-con">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>구분</th>
+                                        <th>합계</th>
+                                        <th>영업</th>
+                                        <th>교통</th>
+                                        <th>유지보수</th>
+                                        <th>손해배상</th>
+                                        <th>용지</th>
+                                        <th>공사</th>
+                                        <th>기타</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="data-sum">합계</th>
+                                        <td class="data-sum">54,187</td>
+                                        <td class="data-sum">25,222</td>
+                                        <td class="data-sum">22,552</td>
+                                        <td class="data-sum">5,274</td>
+                                        <td class="data-sum">312</td>
+                                        <td class="data-sum">603</td>
+                                        <td class="data-sum">128</td>
+                                        <td class="data-sum">96</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="data-nom">콜센터</th>
+                                        <td>42,293</td>
+                                        <td>15,000</td>
+                                        <td>21,321</td>
+                                        <td>5,163</td>
+                                        <td>213</td>
+                                        <td>515</td>
+                                        <td>51</td>
+                                        <td>30</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="data-nom">전자민원</th>
+                                        <td>11,894</td>
+                                        <td>10,222</td>
+                                        <td>1,231</td>
+                                        <td>111</td>
+                                        <td>99</td>
+                                        <td>88</td>
+                                        <td>77</td>
+                                        <td>66</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="sra_data_distribution" class="data_visualization_con">
+                         <p class="data_visualization_tit grp-circle">분포</p>
+                          <div id="sra_data_grp_distribution"></div>
+                        </div>
                     </section>
+                     <section class="main-con-sec tab-contents">
+                        <!-- 시계열 분석 -->
+                         <div id="time_series_analysis_grp_01"></div>
+                         <div id="time_series_analysis_grp_02"></div>
+                     </section>
                 </div>
             </div>
         </div>

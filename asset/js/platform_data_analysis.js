@@ -229,7 +229,7 @@ option3 = {
               height: 40
             },
             style: {
-                text: `${elecarDataChargeCountPer}%\n전일대비`,  
+                text: `${elecarDataChargeCountPer}%n전일대비`,  
                 fontSize: 16,
                 fontWeight: 'bold',
                 fill: '#404040',

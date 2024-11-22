@@ -77,6 +77,8 @@ body{
 --sra01_data_graph01_linecolor_01 : #0971ce;
 --sra01_data_graph01_linecolor_02 : #ff3c00;
 --sra01_data_graph01_bgcolor: rgb(229 246 247);
+--sra_color_code_sub_type01:#e7f0ff;
+--sra_color_code_sub_type02:#cfcfcf;
 
 }
 body.mode-green{
