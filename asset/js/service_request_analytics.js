@@ -190,9 +190,10 @@ var myChartra03 = echarts.init(domSra03, null, {
 var optionra03;
 
 optionra03 = {
-  title: {
-    text: 'Stacked Line'
-  },
+  // title: {
+  //   text: '라인 차트',
+  //   left : '50%'
+  // },
   tooltip: {
     trigger: 'axis'
   },
@@ -290,3 +291,71 @@ if (optionSra04 && typeof optionSra04 === 'object') {
 }
 
 window.addEventListener('resize', myChartSra04.resize);
+
+
+
+
+ const wordCloudChart = echarts.init(document.getElementById('wordCloud'));
+
+    // 2. 데이터 준비
+    const WcData = [
+      { name: "네트워크 시각화", value: 100 },
+      { name: "데이터 분석", value: 80 },
+      { name: "관계 맵", value: 60 },
+      { name: "트렌드 시각화", value: 50 },
+      { name: "클러스터링", value: 40 },
+      { name: "노드 연결", value: 70 },
+      { name: "그래프 분석", value: 30 },
+      { name: "인사이트 추출", value: 90 },
+      { name: "패턴 발견", value: 90 },
+      { name: "시각적 표현", value: 90 },
+      { name: "상관관계", value: 90 },
+      { name: "분산 분석", value: 90 },
+      { name: "키워드 맵", value: 90 },
+      { name: "데이터 시각화", value: 90 },
+      { name: "차트 생성", value: 90 },
+      { name: "분포도", value: 90 },
+      { name: "연관성 분석", value: 90 },
+      { name: "히트맵", value: 90 },
+      { name: "다차원 스케일링", value: 90 },
+      { name: "트리 구조", value: 90 },
+      { name: "인터랙티브 차트", value: 90 },
+      { name: "시간 흐름 분석", value: 90 },
+      { name: "중심성 분석", value: 90 },
+      { name: "모듈화", value: 90 },
+      { name: "주제어 네트워크", value: 90 },
+      { name: "감성 분석", value: 90 },
+      { name: "토픽 모델링", value: 90 },
+      { name: "연결 강도", value: 90 },
+      { name: "인터랙션 맵", value: 90 },
+      { name: "계층적 분석", value: 90 },
+      { name: "군집 시각화", value: 90 },
+    ];
+
+    // 3. 옵션 설정
+    const optionWc = {
+      tooltip: {
+        show: true,
+      },
+      series: [
+        {
+          type: 'wordCloud',
+          gridSize: 10,
+          sizeRange: [12, 60], // 최소, 최대 글자 크기
+          //rotationRange: [-90, 90], // 텍스트 회전 범위
+          shape: 'circle', // 모양 ('circle', 'cardioid', 'diamond', etc.)
+          textStyle: {
+            fontFamily: 'sans-serif',
+            fontWeight: 'bold',
+            color: function () {
+              // 랜덤 색상 설정
+              return `rgb(${Math.random() * 160 + 95}, ${Math.random() * 160 + 95}, ${Math.random() * 160 + 95})`;
+            },
+          },
+          data: WcData, // 키워드 데이터
+        },
+      ],
+    };
+
+    // 4. 옵션으로 차트 설정
+    wordCloudChart.setOption(optionWc);

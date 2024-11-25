@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>민원 분석 대시보드</title>
+    <!-- css -->
+    <link rel="stylesheet" href="/asset/css/reset.css">
+    <link rel="stylesheet" href="/asset/css/bootstrap.css">
+    <link rel="stylesheet" href="/asset/css/components.css">
+    <link rel="stylesheet" href="/asset/css/core.css">
+    <link rel="stylesheet" href="/asset/css/common.css">
+    <link rel="stylesheet" href="/asset/css/service_request_analytics.css">
+    <!-- js -->
+    <script src="/asset/js/jquery-1.9.1.min.js"></script>
+    <script src="/asset/js/modernizr.min.js"></script>
+    <script src="/asset/js/bootstrap.min.js"></script>
+    <script src="/asset/js/jquery.app.js"></script>
+    <script src="/asset/js/jquery.cookie.js"></script>
+    <script src="/asset/js/jquery.core.js"></script>
+    <script src="/asset/js/jquery.ui.js"></script>       
+    <script src="/asset/js/echarts.js"></script>   
+    <script src="/asset/js/echarts-wordcloud.min.js"></script>   
+    <!-- <script src="/asset/js/echarts.min.js"></script>    -->
+</head>
+<body >
+    <div class="all-wrapper" id="service_request_analytics">
+        <div class="wrapper">            
+            <nav id="menu-bar" class="open">
+                <div class="menu-bar-inner">
+                    <h2 class="in-title"><p>민원 분석 대시보드</p></h2>
+                    <div class="menu-item menu-route">
+                        <h3 class="in-item-title"><p>민원 분류</p></h3>
+                        <div class="in-item-content">
+                            <ul class="route-choice">
+                                <li><button type="button">콜 센터</button></li>
+                                <li><button type="button">전자·서면</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- menu-item -->
+                     <div class="menu-item menu-classification">
+                        <h3 class="in-item-title"><p>민원 분류</p></h3>
+                        <div class="in-item-content">
+                            <div class="item-classification">
+                            <ul class="classification-list">
+                                <li>
+                                <select name="" id="">
+                                    <option value="">대분류</option>
+                                    <option value="">대분류</option>
+                                    <option value="">대분류</option>
+                                    <option value="">대분류</option>
+                                    <option value="">대분류</option>
+                                </select>
+                                </li>
+                                <li>
+                                <select name="" id="">
+                                    <option value="">중분류</option>
+                                    <option value="">중분류</option>
+                                    <option value="">중분류</option>
+                                    <option value="">중분류</option>
+                                    <option value="">중분류</option>
+                                </select>
+                                </li>
+                                <li>
+                                <select name="" id="">
+                                    <option value="">소분류</option>
+                                    <option value="">소분류</option>
+                                    <option value="">소분류</option>
+                                    <option value="">소분류</option>
+                                    <option value="">소분류</option>
+                                    <option value="">소분류</option>
+                                </select>
+                                </li>
+                            </ul>
+                            <div class="classification-detail">
+                                <ul class="detail-info-list">
+                                    <li><button type="button">영업</button></li>
+                                    <li><button type="button">교통</button></li>
+                                    <li><button type="button">유지보수</button></li>
+                                    <li><button type="button">손해배상</button></li>
+                                    <li><button type="button">용지</button></li>
+                                    <li><button type="button">공사</button></li>
+                                    <li><button type="button">기타</button></li>
+                                </ul>
+                                <div class="detail-info-control">
+                                    <button type="button" id="classification-all-btn">전체선택</button>
+                                    <button type="button" id="nav-ok-btn">확인</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- menu-item -->
+                     <div class="menu-item">
+                        <h3 class="in-item-title"><p>기간 필터</p></h3>
+                        <div class="in-item-content">
+                            
+                        </div>
+                    </div>
+                    <!-- menu-item -->
+                     <div class="menu-item">
+                        <h3 class="in-item-title item-keyword"><p>포함 키워드</p></h3>
+                        <div class="in-item-content item-keyword">
+                            <div class="item-keyword-box including">
+                                1111
+                            </div>
+                        </div>
+                    </div>
+                    <!-- menu-item -->
+                     <div class="menu-item">
+                        <h3 class="in-item-title item-keyword"><p>제외 키워드</p></h3>
+                        <div class="in-item-content item-keyword">
+                            <div class="item-keyword-box exception">
+                                1111
+                            </div>
+                        </div>
+                    </div>
+                    <!-- menu-item -->
+                     <div class="menu-button-wrap">
+                       <button type="button" class="menu-filter-btn">필터링</button>
+                     </div>
+                </div>
+                <button id="nav-bar-control-btn" type="button">메뉴바 버튼</button>
+            </nav>
+            <div class="container">
+                <div class="contents">
+                    <div class="tab-menu">
+                        <ul class="tab-menu-list">
+                            <li><span>월간 현황</span></li>
+                            <li><span>시계열 분석</span></li>
+                            <li><span>키워드 분석</span></li>
+                            <li><span>유형별 분석</span></li>
+                        </ul>
+                    </div>
+                    <section class="main-con-sec tab-contents">
+                                <div id="sra_monthly_development" class="data_visualization_con">
+                                    <p class="data_visualization_tit">월간 추이</p>
+                                    <div id="sra_monthly_development_grp"></div>
+                                <div id="sra_classification_route_data" class="data_visualization_table_con">
+                                    <table>
+                                        <caption>민원 분류 데이터 테이블</caption>
+                                        <colgroup>
+                                            <col class="col-tit">
+                                            <col class="col-con">
+                                            <col class="col-con">
+                                            <col class="col-con">
+                                            <col class="col-con">
+                                            <col class="col-con">
+                                            <col class="col-con">
+                                            <col class="col-con">
+                                            <col class="col-con">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>구분</th>
+                                                <th>합계</th>
+                                                <th>영업</th>
+                                                <th>교통</th>
+                                                <th>유지보수</th>
+                                                <th>손해배상</th>
+                                                <th>용지</th>
+                                                <th>공사</th>
+                                                <th>기타</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" class="data-sum">합계</th>
+                                                <td class="data-sum">54,187</td>
+                                                <td class="data-sum">25,222</td>
+                                                <td class="data-sum">22,552</td>
+                                                <td class="data-sum">5,274</td>
+                                                <td class="data-sum">312</td>
+                                                <td class="data-sum">603</td>
+                                                <td class="data-sum">128</td>
+                                                <td class="data-sum">96</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="data-nom">콜센터</th>
+                                                <td>42,293</td>
+                                                <td>15,000</td>
+                                                <td>21,321</td>
+                                                <td>5,163</td>
+                                                <td>213</td>
+                                                <td>515</td>
+                                                <td>51</td>
+                                                <td>30</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="data-nom">전자민원</th>
+                                                <td>11,894</td>
+                                                <td>10,222</td>
+                                                <td>1,231</td>
+                                                <td>111</td>
+                                                <td>99</td>
+                                                <td>88</td>
+                                                <td>77</td>
+                                                <td>66</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                    </section>
+                     <section class="main-con-sec tab-contents">
+                        <!-- 시계열 분석 -->
+                        <div id="time_series_analysis_grp_01"></div>
+                        <div id="time_series_analysis_grp_02"></div>
+                     </section>
+                     <section class="main-con-sec tab-contents">
+                        <div id="wordCloud"></div>
+                     </section>
+                     <section class="main-con-sec tab-contents">
+                        <div id="sra_data_distribution" class="data_visualization_con">
+                                <p class="data_visualization_tit grp-circle">분포</p>
+                                <div id="sra_data_grp_distribution"></div>
+                        </div>
+                     </section>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="/asset/js/service_request_analytics.js"></script>
+<!-- <script>
+$(function() { 
+
+  var tabs = $('.tab-menu-list > li');  // 각 탭
+  var tabContents = $('.tab-contents');  // 각 탭과 연결된 컨텐츠
+
+  // 탭에 클릭 이벤트 연결
+  tabs.click(function(e) {
+    var t = $(e.currentTarget);
+
+    // 이전에 선택된 탭이 있는지 검사해서 몇 번째인지 알아옴
+    var before = tabs.filter('.on').index();
+
+    // 이전 선택된 탭의 컨텐츠 숨김 (height: 0으로 숨기기)
+    tabContents.eq(before).stop().animate({
+      'height': '0px',
+      'opacity': '0'
+    }, 300, function() {
+      $(this).css('visibility', 'hidden');
+    });
+
+    // 이전 탭의 on 클래스 제거
+    tabs.eq(before).removeClass('on');
+    
+    // 선택한 탭 on 클래스 추가
+    t.addClass('on');
+
+    // 현재 선택한 탭의 위치 구하자
+    var selIndex = tabs.index(t.get(0));
+
+    // 현재 선택한 탭의 컨텐츠 영역 보이기 (height를 컨텐츠 크기로 변경)
+    tabContents.eq(selIndex).css({
+      'visibility': 'visible',
+      'height': 'auto',
+      'opacity': '1'
+    }).stop().animate({
+      'height': tabContents.eq(selIndex)[0].scrollHeight + 'px'
+    }, 300);
+  });
+
+  // 맨 처음 첫 번째 탭을 보여줌
+  tabs.eq(0).trigger('click');
+});
+
+</script> -->
+<style>
+.tab-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tab-content.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+</style>
+<!-- <script>
+$(function() { 
+  var tabs = $('.tab-menu-list > li');  // 각 탭
+  var tabContents = $('.tab-contents');  // 각 탭과 연결된 컨텐츠
+
+  // 탭에 클릭 이벤트 연결
+  tabContents.stop().css('visibility', 'hidden').stop().fadeOut(30);
+  tabs.click(function(e) {
+    var t = $(e.currentTarget);
+
+    // 이전에 선택된 탭이 있는지 검사해서 몇 번째인지 알아옴
+    var before = tabs.filter('.on').index();
+
+    // 이전 선택된 탭의 컨텐츠 숨김 (페이드 아웃 효과로 숨기기)
+    tabContents.eq(before).stop().fadeOut(30, function() {
+      $(this).css('visibility', 'hidden');  // 숨긴 후 visibility를 hidden으로 설정
+    });
+
+    // 이전 탭의 on 클래스 제거
+    tabs.eq(before).removeClass('on');
+    
+    // 선택한 탭 on 클래스 추가
+    t.addClass('on');
+
+    // 현재 선택한 탭의 위치 구하자
+    var selIndex = tabs.index(t.get(0));
+
+    // 현재 선택한 탭의 컨텐츠 영역 보이기 (페이드 인 효과로 나타나기)
+    //tabContents.eq(selIndex).addClass("on").css('visibility', 'visible').stop().fadeIn(30);
+    tabContents.eq(selIndex).addClass("on").css('visibility', 'visible').stop().fadeIn(30);
+  });
+
+  // 맨 처음 첫 번째 탭을 보여줌
+  tabs.eq(0).css("border","1px solid red").trigger('click');
+});
+</script> -->
+
+<script>
+$(function() { 
+  var tabs = $('.tab-menu-list > li');  // 각 탭
+  var tabContents = $('.tab-contents');  // 각 탭과 연결된 컨텐츠
+
+  // 탭에 클릭 이벤트 연결
+  tabContents.stop().css('visibility', 'hidden').stop().fadeOut(30);
+  tabs.click(function(e) {
+    var t = $(e.currentTarget);
+
+    // 이전에 선택된 탭이 있는지 검사해서 몇 번째인지 알아옴
+    var before = tabs.filter('.on').index();
+
+    // 이전 선택된 탭의 컨텐츠 숨김 (페이드 아웃 효과로 숨기기)
+    tabContents.eq(before).stop().fadeOut(30, function() {
+      $(this).css('visibility', 'hidden');  // 숨긴 후 visibility를 hidden으로 설정
+    });
+
+    // 이전 탭의 on 클래스 제거
+    tabs.eq(before).removeClass('on');
+    
+    // 선택한 탭 on 클래스 추가
+    t.addClass('on');
+
+    // 현재 선택한 탭의 위치 구하자
+    var selIndex = tabs.index(t.get(0));
+
+    // 현재 선택한 탭의 컨텐츠 영역 보이기 (페이드 인 효과로 나타나기)
+    //tabContents.eq(selIndex).addClass("on").css('visibility', 'visible').stop().fadeIn(30);
+    tabContents.eq(selIndex).addClass("on").css('visibility', 'visible').stop().fadeIn(30);
+  });
+
+  // 맨 처음 첫 번째 탭을 보여줌
+  tabs.eq(0).css("border","1px solid red").trigger('click');
+});
+</script>
+
+<!-- <script>
+$(function() { 
+
+  var tabs = $('.tab-menu-list > li');  // 각 탭
+  var tabContents = $('.tab-contents');  // 각 탭과 연결된 컨텐츠
+
+  // 탭에 클릭 이벤트 연결
+  tabContents.stop().css('visibility', 'hidden').stop().removeClass('show');
+  tabs.click(function(e) {
+    var t = $(e.currentTarget);
+
+    // 이전에 선택된 탭이 있는지 검사해서 몇 번째인지 알아옴
+    var before = tabs.filter('.show').index();
+
+    // 이전 선택된 탭의 컨텐츠 숨김 (페이드 아웃 효과로 숨기기)
+    tabContents.eq(before).stop().removeClass('show', function() {
+      $(this).css('visibility', 'hidden');  // 숨긴 후 visibility를 hidden으로 설정
+    });
+
+    // 이전 탭의 on 클래스 제거
+    tabs.eq(before).removeClass('show');
+    
+    // 선택한 탭 on 클래스 추가
+    t.addClass('show');
+
+    // 현재 선택한 탭의 위치 구하자
+    var selIndex = tabs.index(t.get(0));
+
+    // 현재 선택한 탭의 컨텐츠 영역 보이기 (페이드 인 효과로 나타나기)
+    //tabContents.eq(selIndex).addClass("on").css('visibility', 'visible').stop().fadeIn(30);
+    tabContents.eq(selIndex).css('visibility', 'visible').stop().addClass('show');
+  });
+
+  // 맨 처음 첫 번째 탭을 보여줌
+  tabs.eq(0).css("border","1px solid red").trigger('click');
+});
+</script> -->
+</body>
+</html>
