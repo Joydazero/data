@@ -26,7 +26,7 @@
 <body >
     <div class="all-wrapper" id="service_request_analytics">
         <div class="wrapper">            
-            <nav id="menu-bar" class="open">
+            <nav id="menu-bar" class="open" >
                 <div class="menu-bar-inner">
                     <h2 class="in-title"><p>민원 분석 대시보드</p></h2>
                     <div class="menu-item menu-route">
@@ -121,7 +121,7 @@
                        <button type="button" class="menu-filter-btn">필터링</button>
                      </div>
                 </div>
-                <button id="nav-bar-control-btn" type="button">메뉴바 버튼</button>
+                <!-- <button id="nav-bar-control-btn" type="button">메뉴바 버튼</button> -->
             </nav>
             <div class="container">
                 <div class="contents">
@@ -135,6 +135,7 @@
                     </div>
                     <section class="main-con-sec tab-contents">
                                 <div id="sra_monthly_development" class="data_visualization_con">
+                                    <h2 class="cont_tit">월간 현황</h2>
                                     <p class="data_visualization_tit">월간 추이</p>
                                     <div id="sra_monthly_development_grp"></div>
                                 <div id="sra_classification_route_data" class="data_visualization_table_con">
@@ -203,23 +204,26 @@
                                 </div>
                     </section>
                      <section class="main-con-sec tab-contents">
+                         <h2 class="cont_tit">시계열 분석</h2>
                         <!-- 시계열 분석 -->
                         <div id="time_series_analysis_line" class="data_visualization_con">
-                            <p class="data_visualization_tit">꺾은선 차트</p>
+                            <p class="data_visualization_tit">월별 문의량 추이</p>
                             <div id="time_series_analysis_grp_01"></div>
                         </div>
                         <div id="time_series_analysis_bar" class="data_visualization_con"> 
-                            <p class="data_visualization_tit">분류별 막대 차트</p>
+                            <p class="data_visualization_tit">문의량 비교 데이터</p>
                             <div id="time_series_analysis_grp_02"></div>
                         </div>
                      </section>
                      <section class="main-con-sec tab-contents">
+                        <h2 class="cont_tit">키워드 분석</h2>
                         <div id="wordCloud"></div>
                      </section>
                      <section class="main-con-sec tab-contents">
                         <div id="sra_data_distribution" class="data_visualization_con">
-                                <p class="data_visualization_tit grp-circle">분포</p>
-                                <div id="sra_data_grp_distribution"></div>
+                            <h2 class="cont_tit">유형별 분석</h2>
+                            <p class="data_visualization_tit grp-circle">분포</p>
+                            <div id="sra_data_grp_distribution"></div>
                         </div>
                      </section>
                 </div>
@@ -227,93 +231,5 @@
         </div>
     </div>
 <script src="/asset/js/service_request_analytics.js"></script>
-<!-- <script>
-$(function() { 
-
-  var tabs = $('.tab-menu-list > li');  // 각 탭
-  var tabContents = $('.tab-contents');  // 각 탭과 연결된 컨텐츠
-
-  // 탭에 클릭 이벤트 연결
-  tabs.click(function(e) {
-    var t = $(e.currentTarget);
-
-    // 이전에 선택된 탭이 있는지 검사해서 몇 번째인지 알아옴
-    var before = tabs.filter('.on').index();
-
-    // 이전 선택된 탭의 컨텐츠 숨김 (height: 0으로 숨기기)
-    tabContents.eq(before).stop().animate({
-      'height': '0px',
-      'opacity': '0'
-    }, 300, function() {
-      $(this).css('visibility', 'hidden');
-    });
-
-    // 이전 탭의 on 클래스 제거
-    tabs.eq(before).removeClass('on');
-    
-    // 선택한 탭 on 클래스 추가
-    t.addClass('on');
-
-    // 현재 선택한 탭의 위치 구하자
-    var selIndex = tabs.index(t.get(0));
-
-    // 현재 선택한 탭의 컨텐츠 영역 보이기 (height를 컨텐츠 크기로 변경)
-    tabContents.eq(selIndex).css({
-      'visibility': 'visible',
-      'height': 'auto',
-      'opacity': '1'
-    }).stop().animate({
-      'height': tabContents.eq(selIndex)[0].scrollHeight + 'px'
-    }, 300);
-  });
-
-  // 맨 처음 첫 번째 탭을 보여줌
-  tabs.eq(0).trigger('click');
-});
-
-</script> -->
-
-<style>
-  /* 기본 스타일 */
-  .tab-contents {
-    padding: 0px 0px 0px 0px;
-    overflow: hidden;
-    height: 0;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.3s ease; /* 전환 효과 */
-  }
-  .tab-contents.active {
-    height: auto;
-    visibility: visible;
-    opacity: 1;
-        padding: 10px 40px 20px 20px;
-  }
-</style>
-
-<script>
-  $(function () {
-    var tabs = $(".tab-menu-list > li"), // 각 탭
-      tabContents = $(".tab-contents"); // 각 탭과 연결된 컨텐츠
-
-    // 탭 클릭 이벤트 연결
-    tabs.click(function (e) {
-      var t = $(e.currentTarget);
-
-      // 이전 선택된 탭과 컨텐츠 숨김
-      var before = tabs.filter(".on").index();
-      tabs.eq(before).removeClass("on");
-      tabContents.eq(before).removeClass("active");
-
-      // 현재 선택한 탭과 컨텐츠 표시
-      t.addClass("on");
-      var selIndex = tabs.index(t.get(0));
-      tabContents.eq(selIndex).addClass("active");
-    });
-
-    // 처음 첫 번째 탭 활성화
-    tabs.eq(0).trigger("click");
-  });
-</script>
 </body>
 </html>

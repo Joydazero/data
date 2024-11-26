@@ -24,6 +24,7 @@
     --padding: 12px;
 
     /* Font Size */
+    --font-con-tit: 22px;
     --font-large: 18px;
     --font-medium: 14px;
     --font-small: 12px;
@@ -79,6 +80,9 @@ body{
 --sra01_data_graph01_bgcolor: rgb(229 246 247);
 --sra_color_code_sub_type01:#e7f0ff;
 --sra_color_code_sub_type02:#cfcfcf;
+--sra04_time_series_analysis_bar_color01:#ffae00;
+--sra04_time_series_analysis_bar_color02:#8f45ff;
+
 
 }
 body.mode-green{
